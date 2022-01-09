@@ -11,10 +11,15 @@ function prev(){
 }
 function pagination(){
  selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
+ console.log(page_number)
  if(page_number==0){
-  document.getElementById("page").style.marginLeft = "200px";
+  // document.getElementById("page").style.marginLeft = "200px";
   document.getElementById("prev").style.display = "none";
-}
+  }
+  else{
+    // document.getElementById("page").style.marginLeft = "200px";
+    document.getElementById("prev").style.display = "block";
+  }
 if(((products.length-(page_number*page_size)))<=9){
   console.log(products.length-(page_number*page_size))
   document.getElementById("page").style.marginLeft = "-1200px";
@@ -22,7 +27,6 @@ if(((products.length-(page_number*page_size)))<=9){
 }
 else{
   document.getElementById("page").style.marginLeft = "0px";
-  document.getElementById("prev").style.display = "block";
   document.getElementById("next").style.display = "block";
 }
  if(products.length<page_number*page_size+page_size){
@@ -31,7 +35,6 @@ else{
  else{
   document.getElementById("total").innerHTML = products.length;
  }
- console.log("reached")
  document.getElementById("a").innerHTML = page_number*page_size +1;
  document.getElementById("b").innerHTML = page_number*page_size+page_size;
  for (let i = 0; i <= 8; i++) {

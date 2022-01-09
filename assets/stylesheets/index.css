@@ -25,6 +25,7 @@ ul{
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 /*Helper Classes*/
 .our_button{
@@ -128,7 +129,7 @@ bar .col-2 span {
 }
 #topbar .col-2 ul li :hover{
     color: var(--primary-color);
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
 }
 #topbar hr{
     margin: 12px 0px 0px 0px;
@@ -593,6 +594,8 @@ bar .col-2 span {
 }
 #main .card img{
     position: relative;
+    height: 200px;
+    width: 150px;
 }
 #main .card .view{
     position: absolute;
@@ -695,94 +698,32 @@ bar .col-2 span {
     background-position: center;
     background-size: cover;
     margin-top: 40px;
-    
+    padding: 60px 240px;
 }
-#extra .colmn{
-    margin-right: 100px;
-    border: 1px none;
+#extra .col-1,.col-2{
+    width: 50%;
+    height: 85%;
+    border-radius: 5px;
+    margin: 20px;
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
 }
-@media (max-width: 1200px) {
-    #extra{
-        height: 800px;
-    }
-    #extra .extra{
-        flex-direction: column !important;
-    }
-    #extra .colmn{
-        height: 300px;
-        width: 400px;
-    }
-    #extra .colmn.col-1{
-        margin-left: 70% !important;
-        margin-bottom: 50px;
-    }
-    #extra .colmn.col-2{
-        margin-left: 70% !important;
-    }
+#extra .txt{
+    color: var(--text-color);
+    height: 60%;
+    width: 60%;
+    font-size: 18px;
 }
-@media (max-width: 992px) {
-    #extra .colmn.col-1{
-        margin-left: 30% !important;
-        margin-bottom: 50px;
-    }
-    #extra .colmn.col-2{
-        margin-left: 30% !important;
-    }
-}
-@media (max-width:768px) {
-    #extra .colmn{
-        height: 200px;
-        width: 300px;
-    }
-    #extra .colmn.col-1{
-        margin-left: 30% !important;
-        margin-bottom: 50px;
-    }
-    #extra .colmn.col-2{
-        margin-left: 30% !important;
-    }
-    #extra .colmn .image img{
-        width: 120px !important;   
-    }
-    #extra .text{
-        margin: auto 20px auto 10px;
-    }
-    #extra .col{
-        width: 100px;
-    }
-    #extra .text{
-        margin: auto !important;
-    }
-}
-#extra .colmn.col-1{
-    margin-left: 10%;
-}
-#extra .colmn.col-2{
-    margin-left: 3%;
-}
-#extra .extra{
-    margin: 0px 100px;
-}
-#extra .text{
-    margin: auto 60px auto 10px;
-}
-#extra .text p{
-    font-size: 30px;
-    font-weight: 900;
+#extra .txt p{
     color: black;
+    font-size: 30px;
+    font-weight: 600;
 }
-#extra .text span{
-    color: #6c757d;
-    font: 22px;
+#extra .img{
+    height: 80%;
+    width: 30%;
 }
-#extra .colmn .image{
-
-}
-#extra .colmn .image img{
-    width: 190px;
+#extra .img img{
+    width: 120%;
 }
 #electronics{
     margin:50px 0px;
@@ -948,4 +889,21 @@ footer a{
 }
 footer a:hover{
     color: var(--primary-color);
+}
+
+#interest:hover{
+    
+}
+.imagev img{
+    height: 100px;
+    width:70px;
+}
+
+.slidev a{
+    text-decoration: none;
+    color: black;
+}
+#page{
+    font-weight: bold;
+    font-size: large;
 }
