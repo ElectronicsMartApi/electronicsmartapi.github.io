@@ -4,7 +4,6 @@ function setColor(btn) {
 	property.style.backgroundColor = "#292560";
 	property.style.color = "white";
 	interested_in.push(document.getElementById(btn).value);
-	console.log(document.getElementById(btn).value)
 }
 function register(){
 	Houseno = document.querySelector("#houseno").value;

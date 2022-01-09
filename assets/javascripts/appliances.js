@@ -19,7 +19,6 @@ function view_products(){
   var url = "https://electronics-mart-api.herokuapp.com/view";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
@@ -45,7 +44,6 @@ function switch_categories(category){
   var url = "https://electronics-mart-api.herokuapp.com/viewByCategory?category="+category;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
