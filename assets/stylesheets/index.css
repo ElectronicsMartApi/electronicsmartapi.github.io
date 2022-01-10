@@ -363,6 +363,7 @@ bar .col-2 span {
 @media (max-width:1200px){
     #main-navigation ul li .dropdown-menu ul{
         column-count: 1;
+        z-index: -1;
     }
     #main-navigation ul li .dropdown-menu{
         position: absolute;
@@ -382,11 +383,18 @@ bar .col-2 span {
         top: 65px;
         text-align: center;
         background-color: var(--bg-color);
-        /*display: block;*/
         transform: scale(1,0);
-        /*transform: translateX(-100%);*/
         transition-duration: 0.3s;
         transform-origin: top;
+    }
+    #main-navigation ul li{
+    font-weight: 500;
+    }
+    #main-navigation ul li .dropdown-menu{
+        display: none;
+    }
+    #main-navigation ul li.dropdown a::after{
+        display: none;
     }
     #main-navigation .menu-btn{
         display: block;
@@ -396,8 +404,6 @@ bar .col-2 span {
     }
     #main-navigation input[value='toggle-menu']:checked~ul{
         transform: scale(1,1);
-        /*transform: translateX(0%);*/
-        /*display: block;*/
     }
 }
 @media (max-width:768px) {
@@ -533,8 +539,8 @@ bar .col-2 span {
     cursor: pointer;
 }
 #sidebar .sliderv{
-    height: 700px;
-    animation: sliderv 10s infinite linear;
+    height: 860px;
+    animation: sliderv 13s infinite linear;
     z-index: -1;
 }
 #sidebar .sliderv .slidev{
@@ -552,6 +558,12 @@ bar .col-2 span {
 #sidebar .sliderv .slidev .textv{
     margin: 0px 10px 0px 20px;
     color: black;
+}
+@media (max-width:992px){
+    #sidebar .sliderv{
+        height: 700px;
+        z-index: -1;
+    }
 }
 /* Main */ 
 #main{
@@ -654,10 +666,14 @@ bar .col-2 span {
     width: 100%;
 }
 #main .pagination #prev{
+    width: 100px;
     margin-left: 120px;
+    margin-top: 10px;
 }
 #main .pagination #next{
+    width: 100px;
     margin-right: 120px;
+    margin-top: 10px;
 }
 #main .pagination span{
     text-align: center;
@@ -684,6 +700,13 @@ bar .col-2 span {
     color:white;
     font-size: 13px;
 }
+#a,#b,#total{
+    margin: 0px 5px;
+}
+.page{
+    width: 60px;
+    padding-top:20px ;
+}
 @media (max-width:1200px){
     #main .col .desc button{
         padding: 14px 20px;
@@ -702,12 +725,12 @@ bar .col-2 span {
         padding: 15px;
     }
     #main .col .desc button{
-        padding: 12px 16px;
+        padding: 12px 15px;
         font-size: 12px;
     }
     #main .card img{
-        height: 120;
-        width: 120;
+        height: 160px;
+        width: 120px;
     }
 }
 @media (max-width:768px) {
@@ -745,7 +768,6 @@ bar .col-2 span {
     height: 60%;
     width: 50%;
     font-size: 1.05rem;
-    /* border: 1px solid black; */
     padding-top: 25px;
 }
 #extra .txt p{
@@ -756,7 +778,6 @@ bar .col-2 span {
 #extra .img{
     height: 80%;
     width: 30%;
-    /* border: 1px solid black; */
     margin-left: 50px;
 }
 #extra .img img{
@@ -782,6 +803,31 @@ bar .col-2 span {
     #extra .column-2{
         margin:30px auto;
     }
+    #extra .txt{
+        font-size: 1.2rem;
+        padding-top: 60px;
+    }
+}
+@media (max-width:875px){
+    #extra{
+        padding: 50px 100px;
+    }
+    #extra .column-1,.column-2{
+        width: 450px;
+        height: 40%;
+    }
+    #extra .txt{
+        font-size: 1rem;
+        padding-top: 40px;
+    }
+    #extra .img{
+        height: 80%;
+        width: 30%;
+        margin-left: 50px;
+    }
+    #extra .img img{
+        width: 150%;
+    }
 }
 #electronics{
     margin:50px 0px;
@@ -795,7 +841,7 @@ bar .col-2 span {
     margin: 20px 0px;
 }
 #electronics .features{
-    margin: 40px 0px 40px -120px;
+    margin: 40px 0px 40px -80;
 }
 #electronics .feature{
     margin: 40px 0px;
@@ -850,11 +896,6 @@ bar .col-2 span {
     border-style: none;
     padding: 10px;
 }
-@media (max-width:768px) {
-    #usefull .newsletter .email input{
-        width: 100px;
-    }
-}
 #usefull .newsletter .email i{
     margin: 7px;
 }
@@ -883,6 +924,17 @@ bar .col-2 span {
 }
 #usefull .newsletter .follow .icon:hover{
     color: white;
+}
+@media (max-width:992px){
+    #usefull .usefull{
+        margin: 0% 5%;
+        padding-bottom: 20px;
+    }
+}
+@media (max-width:768px) {
+    #usefull .newsletter .email input{
+        width: 100px;
+    }
 }
 .dblue{
     background-color: #6788CE;
