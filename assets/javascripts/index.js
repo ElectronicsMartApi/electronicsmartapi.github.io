@@ -13,21 +13,17 @@ function pagination(){
  selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
  console.log(page_number)
  if(page_number==0){
-  // document.getElementById("page").style.marginLeft = "200px";
-  document.getElementById("prev").style.display = "none";
+  document.getElementById("prev").style.backgroundColor = "transparent";
   }
   else{
-    // document.getElementById("page").style.marginLeft = "200px";
-    document.getElementById("prev").style.display = "block";
+    document.getElementById("prev").style.backgroundColor = "#292560";
   }
 if(((products.length-(page_number*page_size)))<=9){
   console.log(products.length-(page_number*page_size))
-  document.getElementById("page").style.marginLeft = "";
-  document.getElementById("next").style.display = "none";
+  document.getElementById("next").style.backgroundColor = "transparent";
 }
 else{
-  document.getElementById("page").style.marginLeft = "0px";
-  document.getElementById("next").style.display = "block";
+  document.getElementById("next").style.backgroundColor = "#292560";
 }
  if(products.length<page_number*page_size+page_size){
   document.getElementById("total").innerHTML = page_number*page_size+page_size

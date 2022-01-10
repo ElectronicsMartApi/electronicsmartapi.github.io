@@ -642,10 +642,10 @@ bar .col-2 span {
     width: 100%;
 }
 #main .pagination #prev{
-    margin-left: 150px;
+    margin-left: 120px;
 }
 #main .pagination #next{
-    margin-right: 150px;
+    margin-right: 120px;
 }
 #main .pagination span{
     text-align: center;
