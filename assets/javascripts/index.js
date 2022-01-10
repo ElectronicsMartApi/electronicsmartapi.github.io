@@ -22,7 +22,7 @@ function pagination(){
   }
 if(((products.length-(page_number*page_size)))<=9){
   console.log(products.length-(page_number*page_size))
-  document.getElementById("page").style.marginLeft = "-1200px";
+  document.getElementById("page").style.marginLeft = "";
   document.getElementById("next").style.display = "none";
 }
 else{
