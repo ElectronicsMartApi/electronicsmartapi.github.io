@@ -14,16 +14,23 @@ function pagination(){
  console.log(page_number)
  if(page_number==0){
   document.getElementById("prev").style.backgroundColor = "transparent";
+  document.getElementById("prev").style.zIndex = "-1";
+  document.getElementById("prev").innerHTML="";
   }
   else{
     document.getElementById("prev").style.backgroundColor = "#292560";
+    document.getElementById("prev").style.zIndex = "0";
+    document.getElementById("prev").innerHTML="<i class='fas fa-arrow-left'></i> Previous";
   }
 if(((products.length-(page_number*page_size)))<=9){
-  console.log(products.length-(page_number*page_size))
   document.getElementById("next").style.backgroundColor = "transparent";
+  document.getElementById("next").style.zIndex = "-1";
+  document.getElementById("next").innerHTML="";
 }
 else{
   document.getElementById("next").style.backgroundColor = "#292560";
+  document.getElementById("next").style.zIndex = "0";
+    document.getElementById("next").innerHTML="Next <i class='fas fa-arrow-right'></i>";
 }
  if(products.length<page_number*page_size+page_size){
   document.getElementById("total").innerHTML = page_number*page_size+page_size
@@ -36,7 +43,7 @@ else{
  for (let i = 0; i <= 8; i++) {
   var src = selected_products[i].product_img;
   var name = selected_products[i].product_name;
-  nameShort = name.slice(0, 35).concat("...");
+  nameShort = name.slice(0, 25).concat("...");
   var price = selected_products[i].product_price;
   var pricem = (1.2 * price).toFixed(2);
   document.getElementById("img" + i).src = src;
