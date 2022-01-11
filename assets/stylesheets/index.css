@@ -920,6 +920,11 @@ bar .col-2 span {
 #electronics span{
     color: #6c757d;
 }
+@media (max-width:768px){
+    #electronics{
+        margin:50px 10px;
+    }
+}
 #usefull{
     background-color: #060E1F;
 }
@@ -996,8 +1001,19 @@ bar .col-2 span {
     }
 }
 @media (max-width:768px) {
+    #usefull .usefull{
+        margin: 0% 7%;
+    }
+    .quicklinks{
+        display: none;
+    }
     #usefull .newsletter .email input{
-        width: 100px;
+        width: 140px;
+    }
+}
+@media (max-width:650px){
+    #usefull .usefull{
+        margin: 0%2%;
     }
 }
 .dblue{
@@ -1061,13 +1077,15 @@ footer a{
     font-size: 16px;
     font-weight: 600px;
 }
+@media (max-width:768px){
+    footer p,a{
+        font-size: 14px !important;
+    }
+}
 footer a:hover{
     color: var(--primary-color);
 }
 
-#interest:hover{
-    
-}
 .imagev img{
     height: 100px;
     width:70px;
