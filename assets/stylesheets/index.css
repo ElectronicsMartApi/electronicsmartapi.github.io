@@ -203,6 +203,9 @@ bar .col-2 span {
 #header .user-links{
     width: 15%;
 }
+#header .responsive{
+    display: none;
+}
 @media (max-width: 1200px) {
     #header .user-links{
         width: 18%;
@@ -210,6 +213,11 @@ bar .col-2 span {
 }
 #header .user-links ul li{
     margin: 0px 10px;
+    font-size:20px ;
+    color: black;
+}
+#header .responsive .user-links ul li{
+    margin: 5px 10px;
     font-size:20px ;
     color: black;
 }
@@ -224,8 +232,7 @@ bar .col-2 span {
         text-align: center;
     }   
     #header .row .row{
-        margin-top: 10px;
-        margin-bottom: 7px;
+        margin-bottom: 4px;
         display: flex;
     }
     #header .search{
@@ -235,7 +242,7 @@ bar .col-2 span {
         width: 82%;
     }
     #header .user-links{
-        width: 23%;
+        width: 27%;
     }  
     #header .user-links ul{
         display: flex;
@@ -243,6 +250,9 @@ bar .col-2 span {
     }
     #header .user-links ul li{
         padding: 5px;
+    }
+    #header .responsive1200{
+        display: none;
     }
 }
 .user-links i{
@@ -394,7 +404,7 @@ bar .col-2 span {
         position: absolute;
         width: 100%;
         left: 0px;
-        top: 65px;
+        top: 50px;
         text-align: center;
         background-color: var(--bg-color);
         transform: scale(1,0);
@@ -509,6 +519,11 @@ bar .col-2 span {
 #content{
     margin-top:85px ;
 }
+@media (max-width:768px){
+    #content{
+        margin-top:45px ;
+    }
+}
 #content h2{
     text-align: center;
     margin-bottom: 50px;
@@ -595,6 +610,15 @@ bar .col-2 span {
     #sidebar .sliderv{
         height: 700px;
         z-index: -1;
+    }
+}
+@media (max-width:768px){
+    #sidebar{
+        width: 30%;
+        margin-left: 20px;
+    }
+    #sidebar .sliderv{
+        height: 1400px;
     }
 }
 /* Main */ 
@@ -731,7 +755,6 @@ bar .col-2 span {
         font-weight:normal;
         font-size: large;
     }
-    
 }
 @media (max-width:1200px){
     #main .col .desc button{
@@ -767,6 +790,22 @@ bar .col-2 span {
         margin: 0 auto;
         width: 60%;
     }
+    #main .col{
+        width: 80%;
+    }
+    #main .card img{
+        height: 300px;
+        width: 240px;
+    }
+    #main .pagination #prev{
+        margin-left: 5px;
+    }
+    #main .pagination #next{
+        margin-right: 5px;
+    }
+}
+@media (max-width:576px){
+   
 }
 #extra{
     height: 440px;
@@ -1038,4 +1077,3 @@ footer a:hover{
     text-decoration: none;
     color: black;
 }
-
