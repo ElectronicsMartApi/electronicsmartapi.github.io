@@ -137,11 +137,10 @@ bar .col-2 span {
 }
 @media (max-width:768px) {
     #topbar .container > .row{
-        display: block;
-        text-align: center;
+        justify-content: space-around;
     }    
-    #topbar .col-2 .row{
-        justify-content: center;
+    #topbar .col-2 .row li{
+        justify-content: space-between;
     }
 }
 /* Header */
@@ -155,6 +154,11 @@ bar .col-2 span {
 @media (max-width: 992px) {
     #header .logo h1{
         font-size: 20px;
+    }
+}
+@media (max-width:768px){
+    #header{
+        padding: 10px 0px;
     }
 }
 #header .logo h1 a{
@@ -219,11 +223,19 @@ bar .col-2 span {
         display: block;
         text-align: center;
     }   
+    #header .row .row{
+        margin-top: 10px;
+        margin-bottom: 7px;
+        display: flex;
+    }
     #header .search{
-        width: 100%;
+        width: 77%;
+    }
+    #header .search input[type="text"]{
+        width: 82%;
     }
     #header .user-links{
-        width: 100%;
+        width: 23%;
     }  
     #header .user-links ul{
         display: flex;
@@ -518,7 +530,15 @@ bar .col-2 span {
     margin:20px 0px 0px 20px;
     padding: 5px;
 }
+#sidebar .widget_slider{
+    margin:10px 0px 0px 10px;
+    padding: 5px;
+}
 #sidebar .widget h3{
+    text-transform: uppercase;
+}
+#sidebar .widget_slider h3{
+    margin-left: 10px;
     text-transform: uppercase;
 }
 #sidebar .widget ul{
@@ -542,7 +562,7 @@ bar .col-2 span {
 }
 #sidebar .sliderv{
     height: 860px;
-    animation: sliderv 13s infinite linear;
+    animation: sliderv 15s infinite linear;
     z-index: -1;
 }
 #sidebar .sliderv .slidev{
@@ -560,6 +580,16 @@ bar .col-2 span {
 #sidebar .sliderv .slidev .textv{
     margin: 0px 10px 0px 20px;
     color: black;
+}
+#sidebar .sliderv .slidev span{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+@media (max-width:1200px){
+    #sidebar .widget_slider{
+        margin:0px 0px 0px 0px;
+        padding: 5px;
+    }
 }
 @media (max-width:992px){
     #sidebar .sliderv{
@@ -655,13 +685,11 @@ bar .col-2 span {
 }
 #main .pagination #prev{
     width: 100px;
-    margin-left: 120px;
-    margin-top: 10px;
+    margin-left: 10%;
 }
 #main .pagination #next{
     width: 100px;
-    margin-right: 120px;
-    margin-top: 10px;
+    margin-right: 10%;
 }
 #main .pagination span{
     text-align: center;
@@ -693,7 +721,17 @@ bar .col-2 span {
 }
 .page{
     width: 60px;
-    padding-top:20px ;
+}
+#page{
+    font-weight: bold;
+    font-size: large;
+}
+@media (max-width:992px){
+    #page{
+        font-weight:normal;
+        font-size: large;
+    }
+    
 }
 @media (max-width:1200px){
     #main .col .desc button{
@@ -1000,7 +1038,4 @@ footer a:hover{
     text-decoration: none;
     color: black;
 }
-#page{
-    font-weight: bold;
-    font-size: large;
-}
+

@@ -60,7 +60,7 @@ function pagination_s(array){
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
     var price = selected_products[i].product_price;
-    nameShort = name.slice(0, 20).concat("...");
+    nameShort = name.slice(0, 15).concat("...");
     document.getElementById("imgs" + i).src = src;
     document.getElementById("texts" + i).innerHTML = nameShort;
     document.getElementById("prices" + i).innerHTML = "₹" + price;
