@@ -69,7 +69,7 @@ function pagination_s(array){
 function view_products(){
   page_number = 0;
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view";
+  var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           console.log("yes")
@@ -95,7 +95,7 @@ document.getElementById("switch_category").onchange = function(){
 function switch_categories(category){
   page_number = 0;
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/viewByCategory?category="+category;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           console.log("yes")
@@ -117,7 +117,7 @@ function view_by_name(){
   product_name = document.querySelector("#product_name").value;
   console.log(product_name);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/viewByName?name="+product_name;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_name?name="+product_name;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           console.log("yes")
@@ -201,7 +201,7 @@ function send_news() {
 function get_by_rating(rating){
   page_number = 0;
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/viewbyrating?rating="+rating;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_rating?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           console.log("yes")
@@ -221,7 +221,7 @@ function get_by_rating(rating){
 function get_by_price(gt,lt){
   page_number = 0;
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/viewByPrice?gt="+gt+"&lt="+lt;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           console.log("yes")
