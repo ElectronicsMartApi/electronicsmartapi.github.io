@@ -115,7 +115,7 @@ a{
 }
 #topbar span{
     color: var(--text-color) ;
-    font-size: 14 px;
+    font-size: 14px;
 }
 bar .col-2 span {
     font-weight: normal;
@@ -141,6 +141,14 @@ bar .col-2 span {
     }    
     #topbar .col-2 .row li{
         justify-content: space-between;
+    }
+    #topbar .col-2 ul li{
+        margin: 0px 10px;
+    }
+}
+@media (max-width:350px){
+    #topbar .col-2 ul li{
+        margin: 0px 5px;
     }
 }
 /* Header */
@@ -236,7 +244,7 @@ bar .col-2 span {
         display: flex;
     }
     #header .search{
-        width: 77%;
+        width: 100%;
     }
     #header .search input[type="text"]{
         width: 82%;
@@ -253,6 +261,12 @@ bar .col-2 span {
     }
     #header .responsive1200{
         display: none;
+    }
+    #header .responsive{
+        display: block;
+    }
+    #header .responsive .logo{
+        margin-left: 20px;
     }
 }
 @media (max-width:576px){
@@ -370,7 +384,7 @@ bar .col-2 span {
     border-radius: 3px;
     display: none;
     position: absolute;
-    right: 100px;
+    right: 10%;
     top: 7px;
     pointer-events: none;
 }
@@ -378,7 +392,7 @@ bar .col-2 span {
     width: 40px;
     height: 40px;
     position: absolute;
-    right: 100px;
+    right: 10%;
     top: 7px;
     border-radius: 3px;
     display: none;
@@ -822,6 +836,14 @@ bar .col-2 span {
         width: 100%;
     }
 }
+@media (max-width:400px){
+    #main .pagination #prev{
+        margin-left: 2px;
+    }
+    #main .pagination #next{
+        margin-right: 2px;
+    }
+}
 #extra{
     height: 440px;
     background-image: url(https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&q=90&fm=jpg&crop=entropy&cs=tinysrgb&w=4020&fit=max&ixid=eyJhcHBfaWQiOjU1MTN9);
@@ -920,6 +942,18 @@ bar .col-2 span {
         font-size: 1rem;
         padding-top: 0px;
     }
+    #extra .img img{
+        width: 250%;
+    }
+}
+@media (max-width:400px){
+    #extra .column-1,.column-2{
+        width: 250px;
+        height: 50%;
+    }
+    #extra .txt{
+        font-size: 0.9rem;
+    }
 }
 #electronics{
     margin:50px 0px;
@@ -950,7 +984,7 @@ bar .col-2 span {
 }
 @media (max-width:768px){
     #electronics{
-        margin:50px 10px;
+        margin:50px 20px;
     }
 }
 @media (max-width:576px){
@@ -993,7 +1027,7 @@ bar .col-2 span {
     margin: 10px 0px;
 }
 #usefull .newsletter .email input{
-    width: 200px;
+    width: 80%;
     border-radius: 3px;
     border-style: none;
     padding: 10px;
@@ -1040,9 +1074,9 @@ bar .col-2 span {
     .quicklinks{
         display: none;
     }
-    #usefull .newsletter .email input{
+    /* #usefull .newsletter .email input{
         width: 140px;
-    }
+    } */
 }
 @media (max-width:650px){
     #usefull .usefull{
@@ -1053,14 +1087,22 @@ bar .col-2 span {
     .categories{
         display: none;
     }
-    #usefull .newsletter .email input{
+    /* #usefull .newsletter .email input{
         width: 90px;
+    } */
+    
+    .usefull{
+        flex-direction: column;
     }
-    #usefull .newsletter .send{
-        width: 40px;
+    .links{
+        margin:0px auto;
     }
-    #usefull .newsletter .email i{
-        margin: 6px;
+    .newsletter{
+        margin:0px auto;
+    }
+    #usefull .usefull h3{
+        text-align:center;
+        margin-top: 30px;
     }
 }
 .dblue{
@@ -1099,11 +1141,34 @@ bar .col-2 span {
     margin :0px 6px 0px 0px;
 }
 @media (max-width:768px) {
+    .applainces{
+    margin-left: 20px;
+    }
     .applaince .text a{
         padding: 0px 1px;
     }
     .applaince .text li{
         margin :0px 1px 0px 0px;
+    }
+}
+@media (max-width:576px){
+    .remove{
+        display: none;
+    }
+}
+@media (max-width:440px){
+    .remove2{
+        display: none;
+    }
+}
+@media (max-width:350px){
+    .remove3{
+        display: none
+    }
+}
+@media (max-width:300px){
+    .remove4{
+        display: none
     }
 }
 /* Footer*/
@@ -1128,7 +1193,12 @@ footer a{
 footer a:hover{
     color: var(--primary-color);
 }
-
+@media (max-width:768px){
+    #footer{
+        flex-direction: column;
+        text-align: center;
+    }
+}
 .imagev img{
     height: 100px;
     width:70px;
