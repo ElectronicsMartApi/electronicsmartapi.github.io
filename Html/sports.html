@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index | Electronic Mart</title>
-    <link rel="stylesheet" href="../assets/stylesheets/main.css">
+    <title>Electronics Mart</title>
+    <link rel="stylesheet" href="../assets/stylesheets/index.css">
     <script src="https://kit.fontawesome.com/2f44437034.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +20,19 @@
                     <div class="col col-1">
                         <span>WELCOME TO OUR SHOP!</span>
                     </div>
-                    <div class="user_name">
-                        <span id="user_name"></span>
-
+                    <div class="col col-2">
+                        <ul class="row">
+                            <li>
+                                <a href="login.html">
+                                    <i class="fas fa-sign-in-alt"><span> Login</span></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="register.html">
+                                    <i class="fas fa-sign-in-alt"><span> Register</span></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -31,34 +41,67 @@
         <!--  Header  -->
         <header id="header">
             <div class="container">
-                <div class="row justify-between align-center">
-                    <div class="col logo">
+                <div class="row justify-around align-center">
+                    <div class="col logo responsive1200">
                         <h1>
                             <a href="dashboard.html">
                                 <span>E</span>lectronics <span>M</span>art
                             </a>
                         </h1>
                     </div>
-                    <div class="col search">
+                    
+                        <div class="col search responsive1200">
                             <input type="text" name="" id="product_name" placeholder="Search for products, brands and more">
                             <button type="submit" onclick="view_by_name()">
                                 <i class="fas fa-search"></i>
                             </button>
-                        
                     </div>
-                    <div class="col user-links">
+                    <div class="col user-links responsive1200">
                         <ul class="row justify-between">
                             <li>
-                                <a id="interest" onclick="view_by_interest()">
-                                    <i class="far fa-heart"></i>
+                                <a onclick="go_to_login()">
+                                    <i id="favs" class="far fa-heart"></i>
                                 </a>
                             </li>
                             <li>
-                                <a id="cart" onclick="view_my_cart()">
-                                    <i class="fas fa-shopping-cart"></i> Cart
+                                <a onclick="go_to_login()" class="row">
+                                    <i class="fas fa-shopping-cart"></i> &nbsp Cart
                                 </a>
                             </li>
                         </ul>
+                    
+                    </div>
+                    <div class="responsive">
+                        <div class="row justify-between">
+                            <div class="col logo">
+                                <h1>
+                                    <a href="dashboard.html">
+                                        <span>E</span>lectronics <span>M</span>art
+                                    </a>
+                                </h1>
+                            </div>
+                            <div class="col user-links">
+                                <ul class="row justify-between">
+                                    <li>
+                                        <a onclick="go_to_login()">
+                                            <i id="favs" class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onclick="go_to_login()" class="row">
+                                            <i class="fas fa-shopping-cart"></i> Cart
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col search">
+                            <input type="text" name="" id="product_name" placeholder="Search for products, brands and more">
+                            <button type="submit" onclick="view_by_name()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                    </div>
                     </div>
                 </div>    
             </div>
@@ -70,8 +113,8 @@
                     <div class="all-categories">
                         <select id="switch_category">
                             <option value="">Categories</option>
-                            <option value="television">Phone</option>
-                            <option value="earphones">Headphones</option>
+                            <option value="phone">Phone</option>
+                            <option value="headphone">Headphones</option>
                             <option value="computer">Computers</option>
                             <option value="shoes">Sport Shoes</option>
                             <option value="camera">Camera & Accessories</option>
@@ -88,12 +131,12 @@
                                 <li class="">
                                     <a href="dashboard.html">Home</a>
                                 </li>
-                                <li class="dropdown active">
+                                <li class="dropdown">
                                     <a href="electronics.html">Electronics</a>
                                     <div class="dropdown-menu">
                                         <h2>Mobiles, Computers</h2>
                                         <ul>
-                                            <li><a onclick="phone()">All Mobile Phones</a></li>
+                                            <li><a  onclick="phone()">All Mobile Phones</a></li>
                                             <li><a  onclick="Cover_screen()">Covers & Screen Protectors</a></li>
                                             <li><a  onclick="power_bank()">Power Banks</a></li>
                                             <li><a  onclick="tablet()">Tablets</a></li>
@@ -103,10 +146,10 @@
                                             <li><a  onclick="computer_accessories()">Computer Accessories</a></li>
                                             <li><a  onclick="game_zone()">Game Zone & Software</a></li>
                                             <li><a  onclick="watch()">Smart Watches</a></li>
-                                            <li><a ></a></li>
-                                            <li><a ></a></li>
-                                            <li><a ></a></li>
-                                            <li><a ></a></li>                                            
+                                            <li id="display_none"><a ></a></li>
+                                            <li id="display_none"><a ></a></li>
+                                            <li id="display_none"><a ></a></li>
+                                            <li id="display_none"><a ></a></li>                                            
                                         </ul>
                                     </div>
                                 </li>
@@ -137,8 +180,8 @@
                                             <li><a  onclick="football()">Football</a></li>
                                             <li><a  onclick="gym()">Gym Equipments</a></li>
                                             <li><a  onclick="shoes()">Sports Shoes</a></li> 
-                                            <li><a ></a></li>
-                                            <li><a ></a></li>                    
+                                            <li id="display_none"><a ></a></li>
+                                            <li id="display_none"><a ></a></li>                    
                                         </ul>
                                     </div>
                                 </li>
@@ -295,140 +338,307 @@
                                     </p>
                                 </ul>
                             </div>
-                            <div class="widget">
+                            <div class="widget_slider">
                                 <h3>Best Sellers</h3>
+                                <br>
                                 <div class="oh">
                                     <div class="sliderv">
                                         <div class="column" id="column-overflow">
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products0()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs0">
                                                     </div>
-                                                    <div class="textv" id="texts0">
-                                                        <br> <br>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts0">
+                                                            <br> <br>
+                                                        </div>
+                                                        <br>
+                                                        <span id="prices0"> </span>
                                                     </div>
-                                                    <br>
-                                                    <span id="prices0"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products1()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs1">
                                                     </div>
-                                                    <div class="textv" id="texts1">
-
-                                                        <br> <br>
-
+                                                    <div class="column">
+                                                        <div class="textv" id="texts1">
+                                                            <br> <br>
+                                                        </div>
+                                                        <span id="prices1"> </span>
                                                     </div>
-                                                    <span id="prices1"> </span>
+                                                    
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products2()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs2">
                                                     </div>
-                                                    <div class="textv" id="texts2">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts2">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices2"> </span>
                                                     </div>
-                                                    <span id="prices2"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products3()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs3">
                                                     </div>
-                                                    <div class="textv" id="texts3">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts3">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices3"> </span>
                                                     </div>
-                                                    <span id="prices3"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products4()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs4">
                                                     </div>
-                                                    <div class="textv" id="texts4">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts4">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices4"> </span>
                                                     </div>
-                                                    <span id="prices4"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products5()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs5">
                                                     </div>
-                                                    <div class="textv" id="texts5">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts5">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices5"> </span>
                                                     </div>
-                                                    <span id="prices5"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products6()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs6">
                                                     </div>
-                                                    <div class="textv" id="texts6">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts6">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices6"> </span>
                                                     </div>
-                                                    <span id="prices6"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products7()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs7">
                                                     </div>
-                                                    <div class="textv" id="texts7">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts7">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices7"> </span>
                                                     </div>
-                                                    <span id="prices7"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products8()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs8">
                                                     </div>
-                                                    <div class="textv" id="texts8">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts8">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices8"> </span>
                                                     </div>
-                                                    <span id="prices8"> </span>
                                                 </a>
                                             </div>
                                             <div class="slidev">
-                                                <a  class="row">
+                                                <a onclick="view_products9()" class="row">
                                                     <div class="imagev">
                                                         <img src="" alt="" id="imgs9">
                                                     </div>
-                                                    <div class="textv" id="texts9">
+                                                    <div class="column">
+                                                        <div class="textv" id="texts9">
 
-                                                        <br> <br>
-
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices9"> </span>
                                                     </div>
-                                                    <span id="prices9"> </span>
                                                 </a>
                                             </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products10()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs10">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts10">
+                                                            <br> <br>
+                                                        </div>
+                                                        <br>
+                                                        <span id="prices10"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products11()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs11">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts11">
+                                                            <br> <br>
+                                                        </div>
+                                                        <span id="prices11"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products12()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs12">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts12">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices12"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products13()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs13">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts13">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices13"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products14()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs14">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts14">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices14"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products15()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs15">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts15">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices15"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products16()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs16">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts16">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices16"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products17()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs17">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts17">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices17"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products18()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs18">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts18">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices18"> </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="slidev">
+                                                <a onclick="view_products19()" class="row">
+                                                    <div class="imagev">
+                                                        <img src="" alt="" id="imgs19">
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="textv" id="texts19">
+
+                                                            <br> <br>
+    
+                                                        </div>
+                                                        <span id="prices19"> </span>
+                                                    </div>
+                                                </a>
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -455,7 +665,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem0"></span>
                                         </p>
-                                        <a ><button onclick="addtocart0()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -477,7 +687,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem1"></span>
                                         </p>
-                                        <a ><button onclick="addtocart1()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                     <div class="new pink">
                                         <p>New</p>
@@ -503,7 +713,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem2"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart2()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                     <div class="new yellow">
                                         <p>New</p>
@@ -515,7 +725,7 @@
                             <div class="col-1 col">
                                 <div class="card">
                                     <div class="image row justify-center">
-                                        <img class="w-100" src="" id="img3" alt="">
+                                        <img src="" id="img3" alt="">
                                         <div class="view">
                                             <button  onclick="view_product3()">Quick View</button>
                                         </div>
@@ -530,7 +740,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem3"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart3()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                     <div class="new pink">
                                         <p>New</p>
@@ -540,7 +750,7 @@
                             <div class="col-2 col">
                                 <div class="card">
                                     <div class="image row justify-center">
-                                        <img class="w-100" src="" id="img4" alt="">
+                                        <img src="" id="img4" alt="">
                                         <div class="view">
                                             <button  onclick="view_product4()">Quick View</button>
                                         </div>
@@ -556,14 +766,14 @@
                                             </b>
                                             <span class="text-muted" id="pricem4"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart4()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3 col">
                                 <div class="card">
                                     <div class="image row justify-center">
-                                        <img class="w-100" src="" id="img5" alt="">
+                                        <img src="" id="img5" alt="">
                                         <div class="view">
                                             <button  onclick="view_product5()">Quick View</button>
                                         </div>
@@ -579,7 +789,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem5"></span>
                                         </p>
-                                        <a ><button  onclick="addtocar5()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -605,7 +815,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem6"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart6()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                     <div class="new pink">
                                         <p>New</p>
@@ -631,7 +841,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem7"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart7()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -654,7 +864,7 @@
                                             </b>
                                             <span class="text-muted" id="pricem8"></span>
                                         </p>
-                                        <a ><button  onclick="addtocart8()">ADD TO CART</button></a>
+                                        <a href="./Html/login.html"><button>ADD TO CART</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -662,39 +872,39 @@
                         <div class="pagination row justify-around">
                             <button class="our_button" id="prev" onclick="prev()"><i class="fas fa-arrow-left"></i> Previous</button>
                             <span class="row align-center" id="page"><span id="a"></span> &nbsp-&nbsp <span
-                                    id="b"></span> &nbsp out of &nbsp<span id="total"></span></span>
+                                    id="b"></span><span class="page">&nbspout of&nbsp</span><span id="total"></span></span>
                             <button class="our_button" id="next" onclick="next()">Next <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </main>
                 </div>
             </div>
-            <div id="extra" class="row align-center">
-                    <div class="extra row justify-around">
-                            <div class="colmn col-1 row">
-                                <div class="text">
-                                    <span>New Collections, New Trendy</span>
-                                    <br>
-                                    <p>Smart Watches</p>    
-                                    <br>
-                                    <span>Sale Upto 25% off in all store</span>
-                                </div>
-                                <div class="image">
-                                    <img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/off1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="colmn col-2 row">
-                                <div class="text">
-                                    <span>Top Brands, Lowest Prices</span>
-                                    <br>
-                                    <p>Smart Phones</p>    
-                                    <br>
-                                    <span>Free shipping order over ₹1000</span>
-                                </div>
-                                <div class="image">
-                                    <img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/off2.png" alt="">
-                                </div>
-                            </div>
+            <div id="extra" class="row justify-center">
+                   <div class="column-1 row">
+                        <div class="txt">
+                            <br>
+                            <span>New Collections, New Trendy</span>
+                            <br>
+                            <p>Smart Watches</p> 
+                            <br>   
+                            <span>Sale Upto 25% off in all store</span>
+                        </div>
+                        <div class="img">
+                            <img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/off1.png" alt="">
+                        </div>
+                   </div> 
+                   <div class="column-2 row">
+                    <div class="txt">
+                        <br>
+                        <span>Top Brands, Lowest Prices</span>
+                        <br>
+                        <p>Smart Phones</p>    
+                        <br>
+                        <span>Free shipping order over ₹1000</span>
                     </div>
+                    <div class="img">
+                        <img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/off2.png" alt="">
+                    </div>
+                </div>
             </div>
             <div class="container">
                 <div id="electronics">
@@ -742,8 +952,7 @@
                 </div>
                 </div>
                 <div id="usefull">
-                    <div class="usefull">
-                        <div class="row justify-between">
+                        <div class="usefull row justify-between">
                             <div class="links categories">
                                 <div class="column">
                                     <h3>Categories</h3>
@@ -794,7 +1003,7 @@
                                         <span>Free Delivery on your first order!</span>
                                     </a>
                                     <div class="row email">
-                                        <input id="email_news" type="text" placeholder="Email">
+                                        <input id="email_news" type="email" placeholder="Email">
                                         <div class="send">
                                             <a onclick="send_news()">
                                                 <i class="fab fa-telegram-plane fa-2x"></i>
@@ -816,7 +1025,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
             </div>
@@ -833,10 +1041,10 @@
                                     <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay5.png" alt=""></li>
                                     <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay1.png" alt=""></li>
                                     <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay4.png" alt=""></li>
-                                    <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay6.png" alt=""></li>
-                                    <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay3.png" alt=""></li>
-                                    <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay7.png" alt=""></li>
-                                    <li><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay8.png" alt=""></li>
+                                    <li class="remove4"><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay6.png" alt=""></li>
+                                    <li class="remove3"><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay3.png" alt=""></li>
+                                    <li class="remove2"><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay7.png" alt=""></li>
+                                    <li class="remove"><img src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/pay8.png" alt=""></li>
                                 </ul>
                             </div>
                     </div>
@@ -846,10 +1054,12 @@
         <!--  Footer  -->
         <footer>
             <div class="row justify-center" id="footer">
-                <p>© 2022 Electronics Mart. All rights reserved | Design by </p><a href="https://www.linkedin.com/in/mohit-malik-b433311ba/">&nbspMohit&nbsp</a><a href="https://www.linkedin.com/in/namit-k-a94373123/">&nbspNamit&nbsp</a><a href="https://www.linkedin.com/in/manish-343586166/">&nbspManish&nbsp</a><a href="https://www.linkedin.com/in/radhika-mongia-a892ba1a0">&nbspRadhika&nbsp</a>
+                <p>© 2022 Electronics Mart. All rights reserved | Design by </p> <br> <div> <a href="https://www.linkedin.com/in/mohit-malik-b433311ba/">Mohit&nbsp</a><a href="https://www.linkedin.com/in/namit-k-a94373123/">Namit&nbsp</a><a href="https://www.linkedin.com/in/manish-343586166/">Manish&nbsp</a><a href="https://www.linkedin.com/in/radhika-mongia-a892ba1a0">Radhika&nbsp</a> </div>
             </div>
         </footer>
     </div>
-    <script src="../assets/javascripts/electronics.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/javascripts/index.js"></script>
 </body>
 </html>

@@ -150,7 +150,7 @@ function go_to_login(){
       clearInterval(timerInterval)
     }
   }).then((result) => {
-    location.href="./Html_files/login.html"
+    location.href="Html/login.html"
   })
 }
 function send_news() {
