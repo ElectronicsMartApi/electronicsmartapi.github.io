@@ -251,6 +251,7 @@ bar .col-2 span {
     }
     #header .user-links{
         width: 27%;
+        margin-right:10px;
     }  
     #header .user-links ul{
         display: flex;
@@ -527,16 +528,32 @@ bar .col-2 span {
     height: 360px;
     object-fit: cover; /* to fit objects , so that aspect ratio is as it is and clips the extra parts just keeps center part of the image*/
 }
+
 @media (max-width:768px) {
     #banner .text{
         padding-left: 15px;
     }
     #banner .text h2{
         text-transform:uppercase ;
-    font-size: 1.2em;
+        font-size: 1.2em;
     }
 }
-
+@media (max-width:576px) {
+    #banner .text{
+        padding-left: 15px;
+    }
+    #banner .text h2{
+        text-transform:uppercase ;
+        font-size: 1em;
+    }
+    #banner .text h2{
+        text-transform:uppercase ;
+        font-size: 1em;
+    }
+    #banner .text p span{
+        font-size: 1.8em;
+    }
+}
 /* Content */
 #content{
     margin-top:85px ;
