@@ -838,8 +838,8 @@ bar .col-2 span {
         width: 80%;
     }
     #main .card img{
-        height: 300px;
-        width: 240px;
+        height: 250px;
+        width: 200px;
     }
     #main .pagination #prev{
         margin-left: 5px;
@@ -851,6 +851,13 @@ bar .col-2 span {
 @media (max-width:576px){
     #main{
         width: 100%;
+    }
+    #main .col{
+        width: 60%;
+    }
+    #main .card img{
+        height: 200px;
+        width: 170px;
     }
 }
 @media (max-width:400px){
