@@ -39,7 +39,7 @@ function logout(){
       clearInterval(timerInterval)
     }
     }).then((result) => {
-    location.href="../../index.html"
+    location.href="../index.html"
     });
 }
 products = [];
