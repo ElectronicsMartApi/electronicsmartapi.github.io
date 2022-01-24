@@ -31,7 +31,7 @@ function login() {
 						  clearInterval(timerInterval)
 						}
 					  }).then((result) => {
-						location.href="./dashboard.html"
+						location.href="../index.html"
 					  });
 				}
 				if(http.status==404){
@@ -39,6 +39,13 @@ function login() {
 						icon: 'warning',
 						title: 'Oops...',
 						text: 'Invalid Email or Password...',
+					});
+				}
+				if(http.status==201){
+					Swal.fire({
+						icon: 'warning',
+						title: 'Oops...',
+						text: 'You have entered an Old password...',
 					});
 				}
 			}

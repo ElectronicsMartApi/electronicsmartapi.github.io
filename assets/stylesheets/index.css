@@ -106,6 +106,7 @@ a{
 /* Top Bar */
 #topbar{
     padding: 10px 0px 0px 0px;
+    background-color:white;
 }
 #topbar a i{
     color: var(--text-color);
@@ -128,9 +129,52 @@ bar .col-2 span {
     color: var(--primary-color);
     transition-duration: 0.5s;
 }
+.login{
+    display: none;
+}
+.user{
+    font-size: 15px;
+    width: 150px;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid #e7e5e5;
+    margin-top: -6px;
+    margin-bottom: -7px;
+    display: block;
+    border-radius: 5px 5px 5px 5px;
+    background-color:#f5f3f3;
+    color:var(--text-color);
+    cursor: pointer;
+}
+.user #user{
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+    width:140px;
+}
+.user .drop{
+    text-align: center;
+    margin-left: -8px;
+    padding-left: 5px;
+    width: 150px;
+    border-radius: 5px 5px 5px 5px;
+    background-color:#f5f3f3;
+    position: absolute;
+    display:block;
+    z-index: -1;
+}
+.user .drop a{
+    color:var(--text-color);
+}
 #topbar hr{
     margin: 12px 0px 0px 0px;
     opacity: 0.2;
+}
+.user .drop hr{
+    margin: 3px !important;
+}
+.usern_name{
+    display: inline-block;
 }
 @media (max-width:768px) {
     #topbar .container > .row{
@@ -151,6 +195,7 @@ bar .col-2 span {
 /* Header */
 #header{
     padding: 30px 0px;
+    background-color:white;
 }
 #header .logo h1{
     font-size: 28px;

@@ -1,3 +1,47 @@
+function start(){
+  n = localStorage.getItem("name")
+  if(n!=null){
+    console.log("name is ",name,"reached1");
+    document.getElementById('user').style.display = 'block';
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('name').innerHTML = n+'&nbsp <i class="fas fa-caret-down"></i>';
+  }
+  else{
+    document.getElementById('user').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+  }
+}
+var c = 0;
+function drop(){
+  if(c==0){
+    c=1;
+    document.getElementById('drop').style.zIndex = 1;
+  }
+  else{
+    c=0;
+    document.getElementById('drop').style.zIndex = -1;
+  }
+}
+function logout(){
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  Swal.fire({
+    title: 'You are Successfully logged Out!',
+    html: 'Redirecting to Home page.',
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading()
+      timerInterval = setInterval(() => {
+      }, 100)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    }
+    }).then((result) => {
+    location.href="./index.html"
+    });
+}
 products = [];
 var page_number = 0;
 page_size = 9;
@@ -22,35 +66,35 @@ function pagination(){
     document.getElementById("prev").style.zIndex = "0";
     document.getElementById("prev").innerHTML="<i class='fas fa-arrow-left'></i> Previous";
   }
-if(((products.length-(page_number*page_size)))<=9){
-  document.getElementById("next").style.backgroundColor = "transparent";
-  document.getElementById("next").style.zIndex = "-1";
-  document.getElementById("next").innerHTML="";
-}
-else{
-  document.getElementById("next").style.backgroundColor = "#292560";
-  document.getElementById("next").style.zIndex = "0";
-    document.getElementById("next").innerHTML="Next <i class='fas fa-arrow-right'></i>";
-}
- if(products.length<page_number*page_size+page_size){
-  document.getElementById("total").innerHTML = page_number*page_size+page_size
- }
- else{
-  document.getElementById("total").innerHTML = products.length;
- }
- document.getElementById("a").innerHTML = page_number*page_size +1;
- document.getElementById("b").innerHTML = page_number*page_size+page_size;
- for (let i = 0; i <= 8; i++) {
-  var src = selected_products[i].product_img;
-  var name = selected_products[i].product_name;
-  nameShort = name.slice(0, 25).concat("...");
-  var price = selected_products[i].product_price;
-  var pricem = (1.2 * price).toFixed(2);
-  document.getElementById("img" + i).src = src;
-  document.getElementById("name" + i).innerHTML = nameShort;
-  document.getElementById("price" + i).innerHTML = "₹" + price;
-  document.getElementById("pricem" + i).innerHTML = "₹" + pricem;
-}
+  if(((products.length-(page_number*page_size)))<=9){
+    document.getElementById("next").style.backgroundColor = "transparent";
+    document.getElementById("next").style.zIndex = "-1";
+    document.getElementById("next").innerHTML="";
+  }
+  else{
+    document.getElementById("next").style.backgroundColor = "#292560";
+    document.getElementById("next").style.zIndex = "0";
+      document.getElementById("next").innerHTML="Next <i class='fas fa-arrow-right'></i>";
+  }
+  if(products.length<page_number*page_size+page_size){
+    document.getElementById("total").innerHTML = page_number*page_size+page_size
+  }
+  else{
+    document.getElementById("total").innerHTML = products.length;
+  }
+  document.getElementById("a").innerHTML = page_number*page_size +1;
+  document.getElementById("b").innerHTML = page_number*page_size+page_size;
+  for (let i = 0; i <= 8; i++) {
+    var src = selected_products[i].product_img;
+    var name = selected_products[i].product_name;
+    nameShort = name.slice(0, 25).concat("...");
+    var price = selected_products[i].product_price;
+    var pricem = (1.2 * price).toFixed(2);
+    document.getElementById("img" + i).src = src;
+    document.getElementById("name" + i).innerHTML = nameShort;
+    document.getElementById("price" + i).innerHTML = "₹" + price;
+    document.getElementById("pricem" + i).innerHTML = "₹" + pricem;
+  }
 };
 function pagination_s(array){
   n = Math.floor(Math.random()*9);
@@ -450,4 +494,5 @@ function view_products9(){
 function quick_view(){
   location.href="./Html_files/product_detail.html"
 }
+start();
 view_products();
