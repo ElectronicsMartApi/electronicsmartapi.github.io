@@ -39,7 +39,7 @@ function logout(){
       clearInterval(timerInterval)
     }
     }).then((result) => {
-    location.href="https://electronicsmartapi.github.io/"
+    location.href="index.html"
     });
 }
 products = [];
