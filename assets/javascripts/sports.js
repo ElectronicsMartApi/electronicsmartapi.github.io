@@ -492,7 +492,7 @@ function view_products9(){
   quick_view();
 }
 function quick_view(){
-  location.href="./Html_files/product_detail.html"
+  location.href="_files/product_detail.html"
 }
 start();
 view_products();

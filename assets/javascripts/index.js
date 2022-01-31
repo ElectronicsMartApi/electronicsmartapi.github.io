@@ -183,24 +183,70 @@ function view_by_name(){
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
   http.send();
 }
-function go_to_login(){
-  let timerInterval
-  Swal.fire({
-    title: 'You are not logged In!',
-    html: 'Redirecting to login page.',
-    timer: 2000,
-    timerProgressBar: true,
-    didOpen: () => {
-      Swal.showLoading()
-      timerInterval = setInterval(() => {
-      }, 100)
-    },
-    willClose: () => {
-      clearInterval(timerInterval)
+function my_cart(){
+  n = localStorage.getItem("name")
+  if(n==null){
+    let timerInterval
+    Swal.fire({
+      title: 'You are not logged In!',
+      html: 'Redirecting to login page.',
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      location.href="login.html"
+    })
+  }
+  else{
+    location.href='./mycart.html';
+  }
+}
+function my_fav(){
+  n = localStorage.getItem("name")
+  if(n==null){
+    let timerInterval
+    Swal.fire({
+      title: 'You are not logged In!',
+      html: 'Redirecting to login page.',
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      location.href="login.html"
+    })
+  }
+  else{
+    var http = new XMLHttpRequest();
+    var url = "https://electronics-mart-api.herokuapp.com/view_by_interest";
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            console.log(http.responseText);
+            var json = JSON.parse(this.responseText);
+            console.log(json.message);
+            products = json.AllProducts;
+            console.log(products);
+            pagination();
+        }
     }
-  }).then((result) => {
-    location.href="Html/login.html"
-  })
+    http.open('get',url,true);
+    http.setRequestHeader('Content-Type','application/json');
+    http.setRequestHeader("Authorization",localStorage.getItem("token"));
+    http.send();
+  }
 }
 function send_news() {
   email = document.querySelector("#email_news").value;
@@ -497,7 +543,7 @@ function view_products9(){
   quick_view();
 }
 function quick_view(){
-  location.href="./Html_files/product_detail.html"
+  location.href="./product_detail.html"
 }
 start();
 view_products();

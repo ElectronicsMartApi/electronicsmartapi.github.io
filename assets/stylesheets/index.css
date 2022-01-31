@@ -167,8 +167,8 @@ bar .col-2 span {
     padding:5px;
     color:white;
 }
-#user .user_name :hover .drop{
-    z-index: 1
+#name :hover ~ #drop{
+    z-index: 10
 }
 #logout{
     margin-top :12px;
