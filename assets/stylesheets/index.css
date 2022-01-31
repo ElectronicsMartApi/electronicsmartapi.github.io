@@ -243,6 +243,7 @@ bar .col-2 span {
     height: 48px;
     border: none;
     background-color: var(--primary-color);
+    border-radius:3px;
     width: 90px;
     color: white;
     vertical-align: middle;
