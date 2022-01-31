@@ -116,7 +116,7 @@ function view_products(){
   var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
+          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
@@ -142,7 +142,7 @@ function switch_categories(category){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
+          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
@@ -164,7 +164,7 @@ function view_by_name(){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_name?name="+product_name;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
+          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
@@ -248,7 +248,7 @@ function get_by_rating(rating){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_rating?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
+          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
@@ -268,7 +268,7 @@ function get_by_price(gt,lt){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log("yes")
+          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
