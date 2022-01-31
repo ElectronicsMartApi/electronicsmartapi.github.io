@@ -1,3 +1,10 @@
+// document.getElementById('user').addEventListener('mouseover',()=>{
+//   document.getElementById('drop').style.zIndex = 1;
+//   setTimeout(3000,hide_drop)
+// })
+// document.getElementById('drop').addEventListener('mouseleave',()=>{
+//   document.getElementById('drop').style.zIndex = -1;
+// })
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
@@ -11,7 +18,7 @@ function start(){
     document.getElementById('login').style.display = 'block';
   }
 }
-var c = 0;
+var c=0;
 function drop(){
   if(c==0){
     c=1;

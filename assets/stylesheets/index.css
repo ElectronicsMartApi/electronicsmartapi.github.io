@@ -149,6 +149,7 @@ bar .col-2 span {
 }
 .user #user{
     position: absolute;
+    background:transparent;
     z-index: 1;
     height: 30px;
     width:140px;
@@ -167,8 +168,8 @@ bar .col-2 span {
     padding:5px;
     color:white;
 }
-#name :hover ~ #drop{
-    z-index: 10
+#name :hover #drop{
+    z-index: 1
 }
 #logout{
     margin-top :12px;
