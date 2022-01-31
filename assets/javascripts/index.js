@@ -105,7 +105,7 @@ function pagination_s(array){
   n = Math.floor(Math.random()*9);
   selected_products = array.slice((page_number+n)* page_size+1, (page_number+n) * (page_size + page_size+1));
   console.log(selected_products)
-  for (let i = 0; i <= 19; i++) {
+  for (let i = 0; i <= 17; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
     var price = selected_products[i].product_price;
