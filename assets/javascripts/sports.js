@@ -194,7 +194,7 @@ function go_to_login(){
       clearInterval(timerInterval)
     }
   }).then((result) => {
-    location.href="Html/login.html"
+    location.href="login.html"
   })
 }
 function send_news() {
