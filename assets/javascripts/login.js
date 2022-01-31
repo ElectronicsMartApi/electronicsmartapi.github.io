@@ -31,7 +31,7 @@ function login() {
 						  clearInterval(timerInterval)
 						}
 					  }).then((result) => {
-						location.href="../index.html"
+						location.href="./index.html"
 					  });
 				}
 				if(http.status==404){
