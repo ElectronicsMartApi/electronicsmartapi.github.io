@@ -1,10 +1,10 @@
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
-    console.log("name is ",name,"reached1");
+    caps_name = n.toUpperCase();
     document.getElementById('user').style.display = 'block';
     document.getElementById('login').style.display = 'none';
-    document.getElementById('name').innerHTML = n+'&nbsp <i class="fas fa-caret-down"></i>';
+    document.getElementById('name').innerHTML = caps_name+'&nbsp <i class="fas fa-caret-down"></i>';
   }
   else{
     document.getElementById('user').style.display = 'none';
@@ -39,7 +39,7 @@ function logout(){
       clearInterval(timerInterval)
     }
     }).then((result) => {
-    location.href="../index.html"
+    location.href="https://electronicsmartapi.github.io/"
     });
 }
 products = [];

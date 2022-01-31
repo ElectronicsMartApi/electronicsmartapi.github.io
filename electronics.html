@@ -5,35 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronics Mart</title>
-    <link rel="stylesheet" href="../assets/stylesheets/index.css">
+    <link rel="stylesheet" href="./assets/stylesheets/index.css">
     <script src="https://kit.fontawesome.com/2f44437034.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
-    <style>
-        #slider{
-        width: 300%;
-        animation: slider 12s infinite linear;
-        }
-        #slider .slide{
-            width: 33%;
-            position: relative;
-        }
-        @keyframes slider {
-            0%,30%{
-                transform : translateX(0%)
-            }
-            33%,63%{
-                transform : translateX(-33%) ;
-            }
-            66%,96%{
-                transform: translateX(-66%) ;
-            }
-            100%{
-                transform: translateX(-100%);       /*or enter 0% but then all slides will move within the time span of 95% to 100%*/
-            }
-        }
-    </style>
 </head>
 <body>
     <div id="container">
@@ -169,7 +145,7 @@
                                 <li class="">
                                     <a href="dashboard.html">Home</a>
                                 </li>
-                                <li class="dropdown">
+                                <li class="dropdown active">
                                     <a href="electronics.html">Electronics</a>
                                     <div class="dropdown-menu">
                                         <h2>Mobiles, Computers</h2>
@@ -237,6 +213,22 @@
         <!--  Banner  -->
         <div id="banner">
             <div id="slider" class="row">
+                <div class="slide">
+                    <div class="text">
+                        <div class="container">
+                            <p>
+                                Get flat <span>10%</span> ocashback
+                            </p>
+                            <h2>
+                                Exciting Deals On<br> Televisions 
+                            </h2>
+                            <a href="slider1.html"><button>SHOP NOW</button></a>
+                        </div>  
+                    </div>
+                    <div class="image">
+                        <img class="w-100"  src="https://demo.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/images/banner1.png" alt="">
+                    </div>
+                </div>
                 <div class="slide">
                     <div class="text">
                         <div class="container">
@@ -1082,6 +1074,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../assets/javascripts/index.js"></script>
+    <script src="./assets/javascripts/index.js"></script>
 </body>
 </html>

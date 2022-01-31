@@ -1,10 +1,10 @@
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
-    console.log("name is ",name,"reached1");
+    caps_name = n.toUpperCase();
     document.getElementById('user').style.display = 'block';
     document.getElementById('login').style.display = 'none';
-    document.getElementById('name').innerHTML = n+'&nbsp <i class="fas fa-caret-down"></i>';
+    document.getElementById('name').innerHTML = caps_name+'&nbsp <i class="fas fa-caret-down"></i>';
   }
   else{
     document.getElementById('user').style.display = 'none';
@@ -16,11 +16,16 @@ function drop(){
   if(c==0){
     c=1;
     document.getElementById('drop').style.zIndex = 1;
+    setTimeout(5000,hide_drop)
   }
   else{
     c=0;
     document.getElementById('drop').style.zIndex = -1;
   }
+}
+function hide_drop(){
+  c=0;
+  document.getElementById('drop').style.zIndex = -1
 }
 function logout(){
   localStorage.removeItem("token");
