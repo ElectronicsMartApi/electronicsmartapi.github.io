@@ -23,16 +23,11 @@ function drop(){
   if(c==0){
     c=1;
     document.getElementById('drop').style.zIndex = 1;
-    setTimeout(5000,hide_drop)
   }
   else{
     c=0;
     document.getElementById('drop').style.zIndex = -1;
   }
-}
-function hide_drop(){
-  c=0;
-  document.getElementById('drop').style.zIndex = -1
 }
 function logout(){
   localStorage.removeItem("token");
@@ -67,7 +62,6 @@ function prev(){
 }
 function pagination(){
  selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
- console.log(page_number)
  if(page_number==0){
   document.getElementById("prev").style.backgroundColor = "transparent";
   document.getElementById("prev").style.zIndex = "-1";
@@ -109,10 +103,9 @@ function pagination(){
   }
 };
 function pagination_s(array){
-  n = Math.floor(Math.random()*9);
+  n = Math.floor(Math.random()*7);
   selected_products = array.slice((page_number+n)* page_size+1, (page_number+n) * (page_size + page_size+1));
-  console.log(selected_products)
-  for (let i = 0; i <= 17; i++) {
+  for (let i = 0; i <= 19; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
     var price = selected_products[i].product_price;

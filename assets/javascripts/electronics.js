@@ -22,10 +22,6 @@ function drop(){
     document.getElementById('drop').style.zIndex = -1;
   }
 }
-function hide_drop(){
-  c=0;
-  document.getElementById('drop').style.zIndex = -1
-}
 function logout(){
   localStorage.removeItem("token");
   localStorage.removeItem("name");
