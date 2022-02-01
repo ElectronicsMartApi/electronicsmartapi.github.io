@@ -1,7 +1,6 @@
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
-    console.log("name is ",name,"reached1");
     document.getElementById('user').style.display = 'block';
     document.getElementById('login').style.display = 'none';
     document.getElementById('name').innerHTML = n+'&nbsp <i class="fas fa-caret-down"></i>';
@@ -43,6 +42,7 @@ function logout(){
     });
 }
 products = [];
+electronics_products = [];
 var page_number = 0;
 page_size = 9;
 function next() {
@@ -54,7 +54,7 @@ function prev(){
   pagination()
 }
 function pagination(){
- selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
+ selected_products = electronics_products.slice(page_number * page_size, page_number * page_size + page_size);
  console.log(page_number)
  if(page_number==0){
   document.getElementById("prev").style.backgroundColor = "transparent";
@@ -76,11 +76,11 @@ function pagination(){
     document.getElementById("next").style.zIndex = "0";
       document.getElementById("next").innerHTML="Next <i class='fas fa-arrow-right'></i>";
   }
-  if(products.length<page_number*page_size+page_size){
+  if(electronics_products.length<page_number*page_size+page_size){
     document.getElementById("total").innerHTML = page_number*page_size+page_size
   }
   else{
-    document.getElementById("total").innerHTML = products.length;
+    document.getElementById("total").innerHTML = electronics_products.length;
   }
   document.getElementById("a").innerHTML = page_number*page_size +1;
   document.getElementById("b").innerHTML = page_number*page_size+page_size;
@@ -122,13 +122,35 @@ function view_products(){
           console.log(json.message);
           products = json.AllProducts;
           console.log(products);
-          pagination();
           pagination_s(json.AllProducts)
       }
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.send();
+}
+function view_electronics(){
+  page_number = 0;
+  var electronics = {
+    "category" : ["Headphone","Tablet","SmartWatch","Power Bank","Headphones","Laptop","Tablets","EarPhones","Game Zone","Phone","computer","phone","Phone Cover","HeadPhones"]
+  }
+  var data = JSON.stringify(electronics);
+  var http = new XMLHttpRequest();
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_categories";
+  http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+          
+          console.log(http.responseText);
+          var json = JSON.parse(this.responseText);
+          console.log(json.message);
+          electronics_products = json.AllProducts;
+          console.log(products);
+          pagination();
+      }
+  }
+  http.open('post',url,true);
+  http.setRequestHeader('Content-Type','application/json');
+  http.send(data);
 }
 document.getElementById("switch_category").onchange = function(){
   var switch_category = document.getElementById("switch_category");
@@ -159,7 +181,6 @@ function switch_categories(category){
 function view_by_name(){
   page_number = 0;
   product_name = document.querySelector("#product_name").value;
-  console.log(product_name);
   var http = new XMLHttpRequest();
   var url = "https://electronics-mart-api.herokuapp.com/view_by_name?name="+product_name;
   http.onreadystatechange = function() {
@@ -496,3 +517,4 @@ function quick_view(){
 }
 start();
 view_products();
+view_electronics();
