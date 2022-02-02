@@ -132,7 +132,7 @@ function view_products(){
 function view_electronics(){
   page_number = 0;
   var electronics = {
-    "category" : ["Headphone","Tablet","SmartWatch","Power Bank","Headphones","Laptop","Tablets","EarPhones","Game Zone","Phone","computer","phone","Phone Cover","HeadPhones"]
+    "category" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
   }
   var data = JSON.stringify(electronics);
   var http = new XMLHttpRequest();
