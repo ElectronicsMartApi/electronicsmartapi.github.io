@@ -49,6 +49,7 @@ function logout(){
     location.href="./index.html"
     });
 }
+products_array = [];
 products = [];
 var page_number = 0;
 page_size = 9;
@@ -121,12 +122,12 @@ function view_products(){
   var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
-          console.log(products);
+          products_array = json.AllProducts;
+          console.log(products_array);
+          products = products_array.sort((a,b) => 0.5-Math.random());
           pagination();
           pagination_s(json.AllProducts)
       }

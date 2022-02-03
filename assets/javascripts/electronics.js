@@ -1,9 +1,10 @@
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
+    caps_name = n.toUpperCase();
     document.getElementById('user').style.display = 'block';
     document.getElementById('login').style.display = 'none';
-    document.getElementById('name').innerHTML = n+'&nbsp <i class="fas fa-caret-down"></i>';
+    document.getElementById('name').innerHTML = caps_name+'&nbsp <i class="fas fa-caret-down"></i>';
   }
   else{
     document.getElementById('user').style.display = 'none';
@@ -41,7 +42,9 @@ function logout(){
     location.href="./index.html"
     });
 }
+products_array =[];
 products = [];
+electronics=[];
 electronics_products = [];
 var page_number = 0;
 page_size = 9;
@@ -97,9 +100,8 @@ function pagination(){
   }
 };
 function pagination_s(array){
-  n = Math.floor(Math.random()*9);
+  n = Math.floor(Math.random()*7);
   selected_products = array.slice((page_number+n)* page_size+1, (page_number+n) * (page_size + page_size+1));
-  console.log(selected_products)
   for (let i = 0; i <= 19; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
@@ -116,11 +118,12 @@ function view_products(){
   var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
+          products_array = json.AllProducts;
+          console.log(products_array);
+          products = products_array.sort((a,b) => 0.5-Math.random());
           console.log(products);
           pagination_s(json.AllProducts)
       }
@@ -139,12 +142,12 @@ function view_electronics(){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_categories";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          electronics_products = json.AllProducts;
-          console.log(products);
+          electronics = json.AllProducts;
+          console.log(electronics);
+          electronics_products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
