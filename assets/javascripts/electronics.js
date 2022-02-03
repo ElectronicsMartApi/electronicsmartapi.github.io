@@ -42,10 +42,10 @@ function logout(){
     location.href="./index.html"
     });
 }
-products_array =[];
 products = [];
 electronics=[];
-electronics_products = [];
+slider_array =[];
+slider =[];
 var page_number = 0;
 page_size = 9;
 function next() {
@@ -57,7 +57,7 @@ function prev(){
   pagination()
 }
 function pagination(){
- selected_products = electronics_products.slice(page_number * page_size, page_number * page_size + page_size);
+ selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
  console.log(page_number)
  if(page_number==0){
   document.getElementById("prev").style.backgroundColor = "transparent";
@@ -79,11 +79,11 @@ function pagination(){
     document.getElementById("next").style.zIndex = "0";
       document.getElementById("next").innerHTML="Next <i class='fas fa-arrow-right'></i>";
   }
-  if(electronics_products.length<page_number*page_size+page_size){
+  if(products.length<page_number*page_size+page_size){
     document.getElementById("total").innerHTML = page_number*page_size+page_size
   }
   else{
-    document.getElementById("total").innerHTML = electronics_products.length;
+    document.getElementById("total").innerHTML = products.length;
   }
   document.getElementById("a").innerHTML = page_number*page_size +1;
   document.getElementById("b").innerHTML = page_number*page_size+page_size;
@@ -121,11 +121,11 @@ function view_products(){
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products_array = json.AllProducts;
-          console.log(products_array);
-          products = products_array.sort((a,b) => 0.5-Math.random());
-          console.log(products);
-          pagination_s(json.AllProducts)
+          slider_array = json.AllProducts;
+          console.log(slider_array);
+          slider = slider_array.sort((a,b) => 0.5-Math.random());
+          console.log(slider);
+          pagination_s(slider);
       }
   }
   http.open('get',url,true);
@@ -147,7 +147,7 @@ function view_electronics(){
           console.log(json.message);
           electronics = json.AllProducts;
           console.log(electronics);
-          electronics_products=electronics.sort((a,b)=>0.5-Math.random());
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
@@ -167,12 +167,12 @@ function switch_categories(category){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
-          console.log(products);
+          electronics = json.AllProducts;
+          console.log(electronics);
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
@@ -184,23 +184,28 @@ function switch_categories(category){
 function view_by_name(){
   page_number = 0;
   product_name = document.querySelector("#product_name").value;
+  var electronics = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(electronics);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_name?name="+product_name;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
-          console.log(products);
+          electronics = json.AllProducts;
+          console.log(electronics);
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function go_to_login(){
   let timerInterval
@@ -268,23 +273,29 @@ function send_news() {
 }
 function get_by_rating(rating){
   page_number = 0;
+  product_name = document.querySelector("#product_name").value;
+  var electronics = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(electronics);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_rating?rating="+rating;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
-          console.log(products);
+          electronics = json.AllProducts;
+          console.log(electronics);
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function get_by_price(gt,lt){
   page_number = 0;
@@ -292,12 +303,12 @@ function get_by_price(gt,lt){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          
           console.log(http.responseText);
           var json = JSON.parse(this.responseText);
           console.log(json.message);
-          products = json.AllProducts;
-          console.log(products);
+          electronics = json.AllProducts;
+          console.log(electronics);
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
   }
