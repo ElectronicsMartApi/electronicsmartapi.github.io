@@ -280,8 +280,13 @@ function get_by_rating(rating){
 }
 function get_by_price(gt,lt){
   page_number = 0;
+  var electronics = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(electronics);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_price_categories?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
@@ -290,10 +295,10 @@ function get_by_price(gt,lt){
           pagination();
       }
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function Cover_screen(){
   category = "phone cover";
