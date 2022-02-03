@@ -58,7 +58,6 @@ function prev(){
 }
 function pagination(){
  selected_products = products.slice(page_number * page_size, page_number * page_size + page_size);
- console.log(page_number)
  if(page_number==0){
   document.getElementById("prev").style.backgroundColor = "transparent";
   document.getElementById("prev").style.zIndex = "-1";
@@ -100,9 +99,9 @@ function pagination(){
   }
 };
 function pagination_s(array){
-  n = Math.floor(Math.random()*7);
-  selected_products = array.slice((page_number+n)* page_size+1, (page_number+n) * (page_size + page_size+1));
-  for (let i = 0; i <= 19; i++) {
+  n = Math.floor(Math.random()*162);
+  selected_products = array.slice(n,n+19);
+  for (let i = 0; i < 19; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
     var price = selected_products[i].product_price;
@@ -118,13 +117,9 @@ function view_products(){
   var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           slider_array = json.AllProducts;
-          console.log(slider_array);
           slider = slider_array.sort((a,b) => 0.5-Math.random());
-          console.log(slider);
           pagination_s(slider);
       }
   }
@@ -142,11 +137,8 @@ function view_electronics(){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_categories";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           electronics = json.AllProducts;
-          console.log(electronics);
           products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
@@ -167,11 +159,8 @@ function switch_categories(category){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           electronics = json.AllProducts;
-          console.log(electronics);
           products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
@@ -193,11 +182,8 @@ function view_by_name(){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           electronics = json.AllProducts;
-          console.log(electronics);
           products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
@@ -240,9 +226,7 @@ function send_news() {
       var url = "https://electronics-mart-api.herokuapp.com/news_letter";
       http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           Swal.fire({
             icon: 'success',
             title: 'Successful!',
@@ -283,11 +267,8 @@ function get_by_rating(rating){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           electronics = json.AllProducts;
-          console.log(electronics);
           products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
@@ -303,11 +284,8 @@ function get_by_price(gt,lt){
   var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
-          console.log(http.responseText);
           var json = JSON.parse(this.responseText);
-          console.log(json.message);
           electronics = json.AllProducts;
-          console.log(electronics);
           products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
