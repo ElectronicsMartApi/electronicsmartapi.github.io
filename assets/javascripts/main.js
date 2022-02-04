@@ -292,6 +292,13 @@ function send_news() {
             text: "News Letter Service Activated..."
           })
         }
+        if(http.status==404){
+          Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'You are already registered for News letter service...',
+          });
+        }
         if(http.status==500){
           Swal.fire({
             icon: 'warning',
