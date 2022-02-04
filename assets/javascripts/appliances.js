@@ -1,10 +1,3 @@
-// document.getElementById('user').addEventListener('mouseover',()=>{
-//   document.getElementById('drop').style.zIndex = 1;
-//   setTimeout(3000,hide_drop)
-// })
-// document.getElementById('drop').addEventListener('mouseleave',()=>{
-//   document.getElementById('drop').style.zIndex = -1;
-// })
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
@@ -18,7 +11,7 @@ function start(){
     document.getElementById('login').style.display = 'block';
   }
 }
-var c=0;
+var c = 0;
 function drop(){
   if(c==0){
     c=1;
@@ -49,8 +42,10 @@ function logout(){
     location.href="./index.html"
     });
 }
-products_array = [];
 products = [];
+appliances=[];
+slider_array =[];
+slider =[];
 var page_number = 0;
 page_size = 9;
 function next() {
@@ -123,10 +118,9 @@ function view_products(){
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
-          products_array = json.AllProducts;
-          products = products_array.sort((a,b) => 0.5-Math.random());
-          pagination();
-          pagination_s(products)
+          slider_array = json.AllProducts;
+          slider = slider_array.sort((a,b) => 0.5-Math.random());
+          pagination_s(slider);
       }
       if(http.status==500){
 				Swal.fire({
@@ -139,6 +133,33 @@ function view_products(){
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.send();
+}
+function view_appliances(){
+  page_number = 0;
+  var appliances = {
+    "category" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(appliances);
+  var http = new XMLHttpRequest();
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_categories";
+  http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+          var json = JSON.parse(this.responseText);
+          appliances = json.AllProducts;
+          products=appliances.sort((a,b)=>0.5-Math.random());
+          pagination();
+      }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
+  }
+  http.open('post',url,true);
+  http.setRequestHeader('Content-Type','application/json');
+  http.send(data);
 }
 document.getElementById("switch_category").onchange = function(){
   var switch_category = document.getElementById("switch_category");
@@ -153,7 +174,8 @@ function switch_categories(category){
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
-          products = json.AllProducts;
+          appliances = json.AllProducts;
+          products=appliances.sort((a,b)=>0.5-Math.random());
           pagination();
       }
       if(http.status==500){
@@ -172,12 +194,18 @@ function switch_categories(category){
 function view_by_name(){
   page_number = 0;
   product_name = document.querySelector("#product_name").value;
+  var appliances = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(appliances);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_name?name="+product_name;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories";
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
-          products = json.AllProducts;
+          appliances = json.AllProducts;
+          products=appliances.sort((a,b)=>0.5-Math.random());
           pagination();
       }
       if(http.status==500){
@@ -188,10 +216,10 @@ function view_by_name(){
 				});
 			}
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function my_cart(){
   n = localStorage.getItem("name")
@@ -314,12 +342,19 @@ function send_news() {
 }
 function get_by_rating(rating){
   page_number = 0;
+  product_name = document.querySelector("#product_name").value;
+  var appliances = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(appliances);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_rating?rating="+rating;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
-          products = json.AllProducts;
+          appliances = json.AllProducts;
+          products=appliances.sort((a,b)=>0.5-Math.random());
           pagination();
       }
       if(http.status==500){
@@ -330,19 +365,25 @@ function get_by_rating(rating){
 				});
 			}
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function get_by_price(gt,lt){
   page_number = 0;
+  var electronics = {
+    "name": product_name,
+    "categories" : ["Headphone","Tablet","SmartWatch","Power Bank","Laptop","EarPhones","Game Zone","Phone","computer","Phone Cover"]
+  }
+  var data = JSON.stringify(electronics);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_price?gt="+gt+"&lt="+lt;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_price_categories?gt="+gt+"&lt="+lt;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
-          products = json.AllProducts;
+          electronics = json.AllProducts;
+          products=electronics.sort((a,b)=>0.5-Math.random());
           pagination();
       }
       if(http.status==500){
@@ -353,10 +394,10 @@ function get_by_price(gt,lt){
 				});
 			}
   }
-  http.open('get',url,true);
+  http.open('post',url,true);
   http.setRequestHeader('Content-Type','application/json');
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
-  http.send();
+  http.send(data);
 }
 function Cover_screen(){
   category = "phone cover";
@@ -568,7 +609,8 @@ function view_products9(){
   quick_view();
 }
 function quick_view(){
-  location.href="./product_detail.html"
+  location.href="_files/product_detail.html"
 }
 start();
 view_products();
+view_electronics();
