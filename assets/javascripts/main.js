@@ -44,8 +44,6 @@ function logout(){
 }
 products = [];
 main_products=[];
-slider_array =[];
-slider =[];
 var page_number = 0;
 page_size = 9;
 function next() {
@@ -97,10 +95,12 @@ function pagination(){
     document.getElementById("price" + i).innerHTML = "₹" + price;
     document.getElementById("pricem" + i).innerHTML = "₹" + pricem;
   }
-};
-function pagination_s(array){
-  n = Math.floor(Math.random()*162);
-  selected_products = array.slice(n,n+19);
+}
+function pagination_s(){
+  n = Math.floor(Math.random()*(products.length-20));
+  console.log(n)
+  selected_products = products.slice(n,n+19);
+  console.log(selected_products)
   for (let i = 0; i < 19; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
@@ -113,29 +113,6 @@ function pagination_s(array){
 }
 function view_products(){
   page_number = 0;
-  var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_all_products";
-  http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
-          var json = JSON.parse(this.responseText);
-          slider_array = json.AllProducts;
-          slider = slider_array.sort((a,b) => 0.5-Math.random());
-          pagination_s(slider);
-      }
-      if(http.status==500){
-				Swal.fire({
-					icon: 'warning',
-					title: 'Oops...',
-					text: 'Oops Something went wrong...',
-				});
-			}
-  }
-  http.open('get',url,true);
-  http.setRequestHeader('Content-Type','application/json');
-  http.send();
-}
-function view_category(){
-  page_number = 0;
   var category = {
     "category" : categories
   }
@@ -147,7 +124,11 @@ function view_category(){
           var json = JSON.parse(this.responseText);
           main_products = json.AllProducts;
           products=main_products.sort((a,b)=>0.5-Math.random());
+          if(x=1){
+            products = products.slice(products.length-45,products.length);
+          }
           pagination();
+          pagination_s();
       }
       if(http.status==500){
 				Swal.fire({
@@ -611,4 +592,3 @@ function quick_view(){
 }
 start();
 view_products();
-view_category();
