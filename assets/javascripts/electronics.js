@@ -193,24 +193,67 @@ function view_by_name(){
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
   http.send(data);
 }
-function go_to_login(){
-  let timerInterval
-  Swal.fire({
-    title: 'You are not logged In!',
-    html: 'Redirecting to login page.',
-    timer: 2000,
-    timerProgressBar: true,
-    didOpen: () => {
-      Swal.showLoading()
-      timerInterval = setInterval(() => {
-      }, 100)
-    },
-    willClose: () => {
-      clearInterval(timerInterval)
+function my_cart(){
+  n = localStorage.getItem("name")
+  if(n==null){
+    let timerInterval
+    Swal.fire({
+      title: 'You are not logged In!',
+      html: 'Redirecting to login page.',
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      location.href="login.html"
+    })
+  }
+  else{
+    location.href='./mycart.html';
+  }
+}
+function my_fav(){
+  n = localStorage.getItem("name")
+  if(n==null){
+    let timerInterval
+    Swal.fire({
+      title: 'You are not logged In!',
+      html: 'Redirecting to login page.',
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      location.href="login.html"
+    })
+  }
+  else{
+    var http = new XMLHttpRequest();
+    var url = "https://electronics-mart-api.herokuapp.com/view_by_interest";
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            var json = JSON.parse(this.responseText);
+            products = json.AllProducts;
+            pagination();
+        }
     }
-  }).then((result) => {
-    location.href="login.html"
-  })
+    http.open('get',url,true);
+    http.setRequestHeader('Content-Type','application/json');
+    http.setRequestHeader("Authorization",localStorage.getItem("token"));
+    http.send();
+  }
 }
 function send_news() {
   email = document.querySelector("#email_news").value;
