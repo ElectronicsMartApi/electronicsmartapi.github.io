@@ -128,6 +128,13 @@ function view_products(){
           pagination();
           pagination_s(products)
       }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
@@ -149,6 +156,13 @@ function switch_categories(category){
           products = json.AllProducts;
           pagination();
       }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
@@ -166,6 +180,13 @@ function view_by_name(){
           products = json.AllProducts;
           pagination();
       }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
@@ -227,6 +248,13 @@ function my_fav(){
             products = json.AllProducts;
             pagination();
         }
+        if(http.status==500){
+          Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Oops Something went wrong...',
+          });
+        }
     }
     http.open('get',url,true);
     http.setRequestHeader('Content-Type','application/json');
@@ -254,6 +282,13 @@ function send_news() {
             title: 'Successful!',
             text: "News Letter Service Activated..."
           })
+        }
+        if(http.status==500){
+          Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Oops Something went wrong...',
+          });
         }
       }
       http.open('post',url,true);
@@ -287,6 +322,13 @@ function get_by_rating(rating){
           products = json.AllProducts;
           pagination();
       }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');
@@ -303,6 +345,13 @@ function get_by_price(gt,lt){
           products = json.AllProducts;
           pagination();
       }
+      if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
   }
   http.open('get',url,true);
   http.setRequestHeader('Content-Type','application/json');

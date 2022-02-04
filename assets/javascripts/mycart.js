@@ -3,12 +3,15 @@ function view_my_cart(){
     var url = "https://electronics-mart-api.herokuapp.com/viewmycart";
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
-            
-            console.log(http.responseText);
             var json = JSON.parse(this.responseText);
-            console.log(json.message);
             cart = json.cart;
-            console.log(cart);
+        }
+        if(http.status==500){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Oops Something went wrong...',
+            });
         }
     }
     http.open('get',url,true);

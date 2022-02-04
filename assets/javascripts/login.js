@@ -12,10 +12,8 @@ function login() {
 			var url = "https://electronics-mart-api.herokuapp.com/login";
 			http.onreadystatechange = function() {
 				if(http.readyState == 4 && http.status == 200) {
-					console.log(http.responseText);
 					var json = JSON.parse(this.responseText);
 					localStorage.setItem("token",json.token);
-					console.log(json.message);
 					localStorage.setItem("name",json.name);
 					Swal.fire({
 						title: 'You are Successfully logged In!',
@@ -46,6 +44,13 @@ function login() {
 						icon: 'warning',
 						title: 'Oops...',
 						text: 'You have entered an Old password...',
+					});
+				}
+				if(http.status==500){
+					Swal.fire({
+						icon: 'warning',
+						title: 'Oops...',
+						text: 'Oops Something went wrong...',
 					});
 				}
 			}

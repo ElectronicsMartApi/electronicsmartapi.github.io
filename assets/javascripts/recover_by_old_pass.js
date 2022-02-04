@@ -14,12 +14,17 @@ function set_new_pass() {
         var url = "https://electronics-mart-api.herokuapp.com/acc_recover_old_pass";
         http.onreadystatechange = function() {
             if(http.readyState == 4 && http.status == 200) {
-                console.log(http.responseText);
                 var json = JSON.parse(this.responseText);
                 localStorage.setItem("Authorization",json.token);
-                console.log(json.message);
                 location.href = "login.html";
             }
+            if(http.status==500){
+				Swal.fire({
+					icon: 'warning',
+					title: 'Oops...',
+					text: 'Oops Something went wrong...',
+				});
+			}
         }
         http.open('post',url,true);
         http.setRequestHeader('Content-Type','application/json');

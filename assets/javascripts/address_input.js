@@ -45,9 +45,7 @@ function register(){
 		var url = "https://electronics-mart-api.herokuapp.com/register";
 		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
-				console.log(http.responseText);
 				var json = JSON.parse(this.responseText);
-				console.log(json.message);
 				location.href = "activate.html";
 			}
 			if(http.status==500){

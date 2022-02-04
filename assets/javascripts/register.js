@@ -16,7 +16,6 @@ function save(){
 			var url = "https://electronics-mart-api.herokuapp.com/check_email";
 			http.onreadystatechange = function() {
 				if(http.readyState == 4 && http.status == 200) {
-					console.log(http.responseText,http.status);
 					if(http.status==200){
 						if(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(pass)){
 							if(pass!=confirm_pass){

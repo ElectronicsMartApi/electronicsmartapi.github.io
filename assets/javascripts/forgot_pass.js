@@ -11,11 +11,15 @@ function recover_by_email() {
 	var url = "https://electronics-mart-api.herokuapp.com/forgot_pass";
 	http.onreadystatechange = function() {
 		if(http.readyState == 4 && http.status == 200) {
-			console.log(http.responseText);
 			var json = JSON.parse(this.responseText);
 			localStorage.setItem("Authorization",json.token);
-			console.log(json.message);
-            
+		}
+		if(http.status==500){
+			Swal.fire({
+				icon: 'warning',
+				title: 'Oops...',
+				text: 'Oops Something went wrong...',
+			});
 		}
 	}
 	http.open('post',url,true);
