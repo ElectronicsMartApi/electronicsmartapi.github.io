@@ -157,7 +157,7 @@ bar .col-2 span {
 .user .drop{
     text-align: center;
     margin-left: -8px;
-    margin-top: 19px;
+    margin-top: 17px;
     width: 150px;
     border-radius: 5px 5px 5px 5px;
     position: absolute;
@@ -171,8 +171,11 @@ bar .col-2 span {
 #name :hover #drop{
     z-index: 1
 }
+#orders{
+    margin-top :10px;
+}
 #logout{
-    margin-top :12px;
+    margin-top :10px;
 }
 #topbar hr{
     margin: 12px 0px 0px 0px;
