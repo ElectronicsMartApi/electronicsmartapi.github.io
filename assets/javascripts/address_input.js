@@ -48,7 +48,7 @@ function register(){
 				var json = JSON.parse(this.responseText);
 				location.href = "activate.html";
 			}
-			if(http.status==500){
+			if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',

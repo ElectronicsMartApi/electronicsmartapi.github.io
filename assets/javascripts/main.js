@@ -130,7 +130,7 @@ function view_products(){
           pagination();
           pagination_s();
       }
-      if(http.status==500){
+      if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',
@@ -159,7 +159,7 @@ function switch_categories(category){
           products=main_products.sort((a,b)=>0.5-Math.random());
           pagination();
       }
-      if(http.status==500){
+      if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',
@@ -189,7 +189,7 @@ function view_by_name(){
           products=main_products.sort((a,b)=>0.5-Math.random());
           pagination();
       }
-      if(http.status==500){
+      if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',
@@ -257,7 +257,7 @@ function my_fav(){
             products = json.AllProducts;
             pagination();
         }
-        if(http.status==500){
+        if(http.readyState == 4 && http.status==500){
           Swal.fire({
             icon: 'warning',
             title: 'Oops...',
@@ -292,14 +292,14 @@ function send_news() {
             text: "News Letter Service Activated..."
           })
         }
-        if(http.status==404){
+        if(http.readyState == 4 && http.status==404){
           Swal.fire({
             icon: 'warning',
             title: 'Oops...',
             text: 'You are already registered for News letter service...',
           });
         }
-        if(http.status==500){
+        if(http.readyState == 4 && http.status==500){
           Swal.fire({
             icon: 'warning',
             title: 'Oops...',
@@ -344,7 +344,7 @@ function get_by_rating(rating){
           products=main_products.sort((a,b)=>0.5-Math.random());
           pagination();
       }
-      if(http.status==500){
+      if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',
@@ -372,7 +372,7 @@ function get_by_price(gt,lt){
           products=main_products.sort((a,b)=>0.5-Math.random());
           pagination();
       }
-      if(http.status==500){
+      if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',

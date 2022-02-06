@@ -18,7 +18,7 @@ function set_new_pass() {
                 localStorage.setItem("Authorization",json.token);
                 location.href = "login.html";
             }
-            if(http.status==500){
+            if(http.readyState == 4 && http.status==500){
 				Swal.fire({
 					icon: 'warning',
 					title: 'Oops...',

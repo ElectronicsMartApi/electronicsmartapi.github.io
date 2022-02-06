@@ -14,7 +14,7 @@ function recover_by_email() {
 			var json = JSON.parse(this.responseText);
 			localStorage.setItem("Authorization",json.token);
 		}
-		if(http.status==500){
+		if(http.readyState == 4 && http.status==500){
 			Swal.fire({
 				icon: 'warning',
 				title: 'Oops...',

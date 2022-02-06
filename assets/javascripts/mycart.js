@@ -6,7 +6,7 @@ function view_my_cart(){
             var json = JSON.parse(this.responseText);
             cart = json.cart;
         }
-        if(http.status==500){
+        if(http.readyState == 4 && http.status==500){
             Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
