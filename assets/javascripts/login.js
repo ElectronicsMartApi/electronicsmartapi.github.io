@@ -1,7 +1,6 @@
 c=0;
 function login() {
 	if(c!=3){
-		console.log(c)
 		var http = new XMLHttpRequest();
 		email = document.querySelector("#email").value;
 		pwd = document.querySelector("#pwd").value;
@@ -80,7 +79,6 @@ function login() {
 		}
 	}
 	if(c==3){
-		console.log(c);
 		Swal.fire({
 			icon: 'warning',
 			title: 'You have entered wrong email or password multiple times!',
@@ -102,5 +100,5 @@ function login() {
 	}
 }
 function register(){
-	location.href = "register.html";
+	location.href = "register_part_1.html";
 }

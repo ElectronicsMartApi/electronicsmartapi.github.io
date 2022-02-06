@@ -98,9 +98,7 @@ function pagination(){
 }
 function pagination_s(){
   n = Math.floor(Math.random()*(products.length-20));
-  console.log(n)
   selected_products = products.slice(n,n+19);
-  console.log(selected_products)
   for (let i = 0; i < 19; i++) {
     var src = selected_products[i].product_img;
     var name = selected_products[i].product_name;
