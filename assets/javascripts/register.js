@@ -111,6 +111,9 @@ function register_part_2(){
 			},
 			interested_in:interested_in
 		}
+		localStorage.removeItem("name");
+		localStorage.removeItem("email");
+		localStorage.removeItem("pass");
 		var http = new XMLHttpRequest();
 		var data = JSON.stringify(user);
 		var url = "https://electronics-mart-api.herokuapp.com/register";

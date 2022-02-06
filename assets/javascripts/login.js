@@ -41,6 +41,7 @@ function login() {
 							title: 'Oops...',
 							text: 'Invalid Email or Password...',
 						});
+						document.getElementById('pwd').value = '';
 					}
 					if(http.readyState == 4 && http.status==201){
 						c++;
@@ -49,6 +50,7 @@ function login() {
 							title: 'Oops...',
 							text: 'You have entered an Old password...',
 						});
+						document.getElementById('pwd').value = '';
 					}
 					if(http.readyState == 4 && http.status==500){
 						Swal.fire({
@@ -56,6 +58,7 @@ function login() {
 							title: 'Oops...',
 							text: 'Oops Something went wrong...',
 						});
+						document.getElementById('pwd').value = '';
 					}
 				}
 				http.open('post',url,true);
