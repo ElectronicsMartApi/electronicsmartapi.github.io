@@ -17,22 +17,66 @@ function login() {
 						var json = JSON.parse(this.responseText);
 						localStorage.setItem("token",json.token);
 						localStorage.setItem("name",json.name);
-						Swal.fire({
-							title: 'You are Successfully logged In!',
-							html: 'Redirecting to Home page.',
-							timer: 2000,
-							timerProgressBar: true,
-							didOpen: () => {
-							Swal.showLoading()
-							timerInterval = setInterval(() => {
-							}, 100)
-							},
-							willClose: () => {
-							clearInterval(timerInterval)
-							}
-						}).then((result) => {
-							location.href="./index.html"
-						});
+						if(json.two_factor_authentication == 0){
+							Swal.fire({
+								title: 'You are Successfully logged In!',
+								html: 'Redirecting to Home page.',
+								timer: 2000,
+								timerProgressBar: true,
+								didOpen: () => {
+								Swal.showLoading()
+								timerInterval = setInterval(() => {
+								}, 100)
+								},
+								willClose: () => {
+								clearInterval(timerInterval)
+								}
+							}).then((result) => {
+								location.href="./index.html"
+							});
+						}
+						if(json.two_factor_authentication == 1){
+							Swal.fire({
+								title: 'You have to enter OTP',
+								html: 'sending OTP to your email',
+								timer: 2000,
+								timerProgressBar: true,
+								didOpen: () => {
+								Swal.showLoading()
+								timerInterval = setInterval(() => {
+								}, 100)
+								},
+								willClose: () => {
+								clearInterval(timerInterval)
+								}
+							}).then((result) => {
+								if(json.OTP_SENT == 1){
+									Swal.fire({
+										title: 'OTP successfully sent',
+										html: 'Redirecting to verify OTP page',
+										timer: 2000,
+										timerProgressBar: true,
+										didOpen: () => {
+										Swal.showLoading()
+										timerInterval = setInterval(() => {
+										}, 100)
+										},
+										willClose: () => {
+										clearInterval(timerInterval)
+										}
+									}).then((result) => {
+										location.href="./verify_otp.html"
+									});
+								}
+								if(json.OTP_SENT == 0){
+									Swal.fire({
+										icon: 'warning',
+										title: 'Oops...',
+										text: "Failed to sent OTP, Please try again later...",
+									});
+								}
+							});
+						}
 					}
 					if(http.readyState == 4 && http.status==404){
 						c++;
