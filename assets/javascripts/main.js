@@ -1,3 +1,4 @@
+var x;
 function start(){
   n = localStorage.getItem("name")
   if(n!=null){
@@ -122,7 +123,7 @@ function view_products(){
           var json = JSON.parse(this.responseText);
           main_products = json.AllProducts;
           products=main_products.sort((a,b)=>0.5-Math.random());
-          if(x=1){
+          if(x==1){
             products = products.slice(products.length-45,products.length);
           }
           pagination();
