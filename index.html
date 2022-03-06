@@ -152,16 +152,16 @@
                                     <div class="dropdown-menu">
                                         <h2>Mobiles, Computers</h2>
                                         <ul>
-                                            <li><a  onclick="phone()">All Mobile Phones</a></li>
-                                            <li><a  onclick="Cover_screen()">Covers & Screen Protectors</a></li>
-                                            <li><a  onclick="power_bank()">Power Banks</a></li>
-                                            <li><a  onclick="tablet()">Tablets</a></li>
-                                            <li><a  onclick="headphone_earphone()">Headphones & Earphones</a></li>
-                                            <li><a  onclick="smart_home()">Smart Home</a></li>
-                                            <li><a  onclick="laptop()">Laptops</a></li>
-                                            <li><a  onclick="computer_accessories()">Computer Accessories</a></li>
-                                            <li><a  onclick="game_zone()">Game Zone & Software</a></li>
-                                            <li><a  onclick="watch()">Smart Watches</a></li>
+                                            <li><a  onclick="switch_categories('phone')">All Mobile Phones</a></li>
+                                            <li><a  onclick="switch_categories('phone cover')">Covers & Screen Protectors</a></li>
+                                            <li><a  onclick="switch_categories('power bank')">Power Banks</a></li>
+                                            <li><a  onclick="switch_categories('tablet')">Tablets</a></li>
+                                            <li><a  onclick="switch_categories('headphone')">Headphones & Earphones</a></li>
+                                            <li><a  onclick="switch_categories('smart home')">Smart Home</a></li>
+                                            <li><a  onclick="switch_categories('laptop')">Laptops</a></li>
+                                            <li><a  onclick="switch_categories('computer')">Computer Accessories</a></li>
+                                            <li><a  onclick="switch_categories('game')">Game Zone & Software</a></li>
+                                            <li><a  onclick="switch_categories('watch')">Smart Watches</a></li>
                                             <li id="display_none"><a ></a></li>
                                             <li id="display_none"><a ></a></li>
                                             <li id="display_none"><a ></a></li>
@@ -174,14 +174,14 @@
                                     <div class="dropdown-menu">
                                         <h2>Tv, Appliances, Electronics</h2>
                                         <ul>
-                                            <li><a  onclick="television()">Telivisions</a></li>
-                                            <li><a  onclick="speaker()">Speakers</a></li>
-                                            <li><a  onclick="camera()">Cameras & DSLR</a></li>
-                                            <li><a  onclick="game()">Gaming Consoles</a></li>
-                                            <li><a  onclick="AC()">Air Conditioners</a></li>
-                                            <li><a  onclick="heater()">Heaters</a></li>
-                                            <li><a  onclick="refrigerator()">Refrigerators</a></li>
-                                            <li><a  onclick="washing_machine()">Washing Machine</a></li>                                   
+                                            <li><a  onclick="switch_categories('television')">Telivisions</a></li>
+                                            <li><a  onclick="switch_categories('speaker')">Speakers</a></li>
+                                            <li><a  onclick="switch_categories('camera')">Cameras & DSLR</a></li>
+                                            <li><a  onclick="switch_categories('console')">Gaming Consoles</a></li>
+                                            <li><a  onclick="switch_categories('AC')">Air Conditioners</a></li>
+                                            <li><a  onclick="switch_categories('heater')">Heaters</a></li>
+                                            <li><a  onclick="switch_categories('refrigerator')">Refrigerators</a></li>
+                                            <li><a  onclick="switch_categories('washing machine')">Washing Machine</a></li>                                   
                                         </ul>
                                     </div>
                                 </li>
@@ -190,12 +190,12 @@
                                     <div class="dropdown-menu">
                                         <h2> Sports & Fitness</h2>
                                         <ul>
-                                            <li><a  onclick="cricket()">Cricket</a></li>
-                                            <li><a  onclick="badminton()">Badminton</a></li>
-                                            <li><a  onclick="cycling()">Cycling</a></li>
-                                            <li><a  onclick="football()">Football</a></li>
-                                            <li><a  onclick="gym()">Gym Equipments</a></li>
-                                            <li><a  onclick="shoes()">Sports Shoes</a></li> 
+                                            <li><a  onclick="switch_categories('cricket')">Cricket</a></li>
+                                            <li><a  onclick="switch_categories('badminton')">Badminton</a></li>
+                                            <li><a  onclick="switch_categories('cycling')">Cycling</a></li>
+                                            <li><a  onclick="switch_categories('football')">Football</a></li>
+                                            <li><a  onclick="switch_categories('gym')">Gym Equipments</a></li>
+                                            <li><a  onclick="switch_categories('shoes')">Sports Shoes</a></li> 
                                             <li id="display_none"><a ></a></li>
                                             <li id="display_none"><a ></a></li>                    
                                         </ul>
@@ -294,7 +294,7 @@
                                 <h3>Customer Review</h3>
                                 <ul>
                                         <li>
-                                            <a onclick="star5()">
+                                            <a onclick="get_by_rating(5)">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -304,7 +304,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a onclick="star4_5()">
+                                            <a onclick="get_by_rating(4.5)">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -314,7 +314,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a onclick="star4()">
+                                            <a onclick="get_by_rating(4)">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -323,7 +323,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a onclick="star3_5()">
+                                            <a onclick="get_by_rating(3.5)">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -332,7 +332,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a onclick="star3()">
+                                            <a onclick="get_by_rating(3)">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -345,12 +345,12 @@
                                 <h3>PRICE</h3>
                                 <ul>
                                     <p>
-                                    <li><a onclick="less_5k()">Under ₹5,000</a></li>
-                                    <li><a onclick="less_10k()">₹5,000 - ₹10,000</a></li>
-                                    <li><a onclick="less_20k()">₹10,000 - ₹20,000</a></li>
-                                    <li><a onclick="less_35k()">₹20,000 - ₹35,000</a></li>
-                                    <li><a onclick="less_50k()">₹35,000 - ₹50,000</a></li>
-                                    <li><a onclick="more_50k()">Over ₹50,000</a></li>
+                                    <li><a onclick="get_by_price(0,5000)">Under ₹5,000</a></li>
+                                    <li><a onclick="get_by_price(5000,10000)">₹5,000 - ₹10,000</a></li>
+                                    <li><a onclick="get_by_price(10000,20000)">₹10,000 - ₹20,000</a></li>
+                                    <li><a onclick="get_by_price(20000,35000)">₹20,000 - ₹35,000</a></li>
+                                    <li><a onclick="get_by_price(35000,50000)">₹35,000 - ₹50,000</a></li>
+                                    <li><a onclick="get_by_price(50000,999999)">Over ₹50,000</a></li>
                                     </p>
                                 </ul>
                             </div>

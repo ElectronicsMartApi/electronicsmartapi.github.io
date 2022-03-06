@@ -148,6 +148,7 @@ document.getElementById("switch_category").onchange = function(){
   switch_categories(category);
 }
 function switch_categories(category){
+  document.getElementsByClassName("dropdown-menu").style(zIndex=-1)
   page_number = 0;
   var http = new XMLHttpRequest();
   var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
@@ -384,139 +385,8 @@ function get_by_price(gt,lt){
   http.setRequestHeader("Authorization",localStorage.getItem("token"));
   http.send(data);
 }
-function Cover_screen(){
-  category = "phone cover";
-  switch_categories(category);
-}
-function power_bank(){
-  category = "power bank";
-  switch_categories(category);
-}
-function tablet(){
-  category = "tablet";
-  switch_categories(category);
-}
-function headphone_earphone(){
-  category = "headphone";
-  switch_categories(category);
-}
-function smart_home(){
-  category = "smart home";
-  switch_categories(category);
-}
-function laptop(){
-  category = "laptop";
-  switch_categories(category);
-}
-function computer_accessories(){
-  category = "computer";
-  switch_categories(category);
-}
-function game_zone(){
-  category = "game";
-  switch_categories(category);
-}
-function watch(){
-  category = "watch";
-  switch_categories(category);
-}
-function television(){
-  category = "television";
-  switch_categories(category);
-}
-function speaker(){
-  category = "speaker";
-  switch_categories(category);
-}
-function camera(){
-  category = "camera";
-  switch_categories(category);
-}
-function game(){
-  category = "console";
-  switch_categories(category);
-}
-function AC(){
-  category = "AC";
-  switch_categories(category);
-}
-function heater(){
-  category = "heater";
-  switch_categories(category);
-}
-function refrigerator(){
-  category = "refrigerator";
-  switch_categories(category);
-}
-function washing_machine(){
-  category = "washing machine";
-  switch_categories(category);
-}
-function cricket(){
-  category = "cricket";
-  switch_categories(category);
-}
-function badminton(){
-  category = "badminton";
-  switch_categories(category);
-}
-function cycling(){
-  category = "cycling";
-  switch_categories(category);
-}
-function football(){
-  category = "football";
-  switch_categories(category);
-}
-function gym(){
-  category = "gym";
-  switch_categories(category);
-}
-function shoes(){
-  category = "shoes";
-  switch_categories(category);
-}
-function sports(){
-  category = "sports";
-  switch_categories(category);
-}
-function phone(){
-  category = "phone";
-  switch_categories(category);
-}
-function star5(){
-  get_by_rating(5);
-}
-function star4_5(){
-  get_by_rating(4.5);
-}
-function star4(){
-  get_by_rating(4);
-}
-function star3_5(){
-  get_by_rating(3.5);
-}
-function star3(){
-  get_by_rating(3);
-}
-function less_5k(){
-  get_by_price(0,5000)
-}
-function less_10k(){
-  get_by_price(5000,10000)
-}
-function less_20k(){
-  get_by_price(10000,20000)
-}
-function less_35k(){
-  get_by_price(20000,35000)
-}
-function less_50k(){
-  get_by_price(35000,50000)
-}
-function more_50k(){
-  get_by_price(50000,999999)
-}
+
+
 function view_product0(){
   localStorage.setItem("p_id",selected_products[0].product_id)
   quick_view();
