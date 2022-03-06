@@ -148,7 +148,8 @@ document.getElementById("switch_category").onchange = function(){
   switch_categories(category);
 }
 function switch_categories(category){
-  document.getElementsByClassName("dropdown-menu").style(zIndex=-1)
+  //document.getElementsByClassName("dropdown").style.zIndex = -1 ;
+  document.getElementById( 'content' ).scrollIntoView();
   page_number = 0;
   var http = new XMLHttpRequest();
   var url = "https://electronics-mart-api.herokuapp.com/view_by_category?category="+category;
@@ -465,6 +466,9 @@ function view_products9(){
 }
 function quick_view(){
   location.href="_files/product_detail.html"
+}
+function scroll_to_content(){
+  document.getElementById( 'content' ).scrollIntoView();
 }
 start();
 view_products();
