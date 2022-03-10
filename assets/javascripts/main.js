@@ -113,7 +113,7 @@ function pagination_s(){
 function view_products(){
   page_number = 0;
   var category = {
-    "category" : categories
+    "categories" : categories
   }
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
@@ -337,7 +337,7 @@ function get_by_rating(rating){
   }
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_name_categories?rating="+rating;
+  var url = "https://electronics-mart-api.herokuapp.com/view_by_categories?rating="+rating;
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
