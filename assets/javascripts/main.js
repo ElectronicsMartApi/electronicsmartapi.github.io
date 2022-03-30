@@ -1,4 +1,5 @@
 var x;
+var isHome;
 function start() {
   n = localStorage.getItem("name");
   if (n != null) {
