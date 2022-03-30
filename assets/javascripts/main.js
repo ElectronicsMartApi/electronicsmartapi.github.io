@@ -1,4 +1,5 @@
-var x;
+var isNewArrival;
+var total_products;
 var isHome;
 function start() {
   n = localStorage.getItem("name");
@@ -47,12 +48,28 @@ main_products = [];
 var page_number = 0;
 page_size = 9;
 function next() {
+  if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0) {
+    console.log("Before");
+    view_homeproducts(page_number / 5);
+
+    console.log("after");
+  }
   page_number += 1;
-  pagination();
+  if (isHome == true) {
+    console.log("Calling home pagination");
+    home_pagination();
+  } else {
+    console.log("Calling p");
+    pagination();
+  }
 }
 function prev() {
   page_number -= 1;
-  pagination();
+  if (isHome == true) {
+    home_pagination();
+  } else {
+    pagination();
+  }
 }
 function pagination() {
   selected_products = products.slice(
@@ -99,6 +116,51 @@ function pagination() {
     document.getElementById("pricem" + i).innerHTML = "₹" + pricem;
   }
 }
+function home_pagination() {
+  selected_products = products.slice(
+    page_number * page_size,
+    page_number * page_size + page_size
+  );
+  if (page_number == 0) {
+    document.getElementById("prev").style.backgroundColor = "transparent";
+    document.getElementById("prev").style.zIndex = "-1";
+    document.getElementById("prev").innerHTML = "";
+  } else {
+    document.getElementById("prev").style.backgroundColor = "#292560";
+    document.getElementById("prev").style.zIndex = "0";
+    document.getElementById("prev").innerHTML =
+      "<i class='fas fa-arrow-left'></i> Previous";
+  }
+  if (total_products - page_number * page_size <= 9) {
+    document.getElementById("next").style.backgroundColor = "transparent";
+    document.getElementById("next").style.zIndex = "-1";
+    document.getElementById("next").innerHTML = "";
+  } else {
+    document.getElementById("next").style.backgroundColor = "#292560";
+    document.getElementById("next").style.zIndex = "0";
+    document.getElementById("next").innerHTML =
+      "Next <i class='fas fa-arrow-right'></i>";
+  }
+  if (total_products < page_number * page_size + page_size) {
+    document.getElementById("total").innerHTML =
+      page_number * page_size + page_size;
+  } else {
+    document.getElementById("total").innerHTML = total_products;
+  }
+  document.getElementById("a").innerHTML = page_number * page_size + 1;
+  document.getElementById("b").innerHTML = page_number * page_size + page_size;
+  for (let i = 0; i <= 8; i++) {
+    var src = selected_products[i].product_img;
+    var name = selected_products[i].product_name;
+    nameShort = name.slice(0, 25).concat("...");
+    var price = selected_products[i].product_price;
+    var pricem = (1.2 * price).toFixed(2);
+    document.getElementById("img" + i).src = src;
+    document.getElementById("name" + i).innerHTML = nameShort;
+    document.getElementById("price" + i).innerHTML = "₹" + price;
+    document.getElementById("pricem" + i).innerHTML = "₹" + pricem;
+  }
+}
 function pagination_s() {
   n = Math.floor(Math.random() * (products.length - 20));
   selected_products = products.slice(n, n + 19);
@@ -124,6 +186,9 @@ function view_products() {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
       main_products = json.AllProducts;
+      if (isNewArrival == 1) {
+        products = products.slice(products.length - 45, products.length);
+      }
       products = main_products.sort((a, b) => 0.5 - Math.random());
       pagination();
       pagination_s();
@@ -140,21 +205,23 @@ function view_products() {
   http.setRequestHeader("Content-Type", "application/json");
   http.send(data);
 }
-function view_homeproducts() {
+function view_homeproducts(set_of_45_products) {
+  var skip = set_of_45_products * 45;
+  var limit = skip + 45;
   page_number = 0;
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_45_products?skip=0&limit=45";
+    "https://electronics-mart-api.herokuapp.com/view_45_products?skip=" +
+    skip +
+    "&limit=" +
+    limit;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
       products = json.Products;
       // products=main_produc.sort((a,b)=>0.5-Math.random());
-      if (x == 1) {
-        products = products.slice(products.length - 45, products.length);
-      }
-      total_products = JSON.Total_products;
-      pagination();
+      total_products = json.Total_products;
+      home_pagination();
       pagination_s();
     }
     if (http.readyState == 4 && http.status == 500) {
@@ -500,11 +567,8 @@ function scroll_to_content() {
   document.getElementById("content").scrollIntoView();
 }
 start();
-console.log(isHome);
-
 if (isHome == true) {
-  console.log(isHome);
-  view_homeproducts();
+  view_homeproducts(0);
 } else {
   view_products();
 }
