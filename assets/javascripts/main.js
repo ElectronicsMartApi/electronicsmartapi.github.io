@@ -48,18 +48,19 @@ main_products = [];
 var page_number = 0;
 page_size = 9;
 function next() {
-  if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0) {
+  page_number += 1;
+  console.log("page_number   "+page_number);
+  if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
     console.log("Before");
     view_homeproducts(page_number / 5);
-
     console.log("after");
   }
-  page_number += 1;
-  if (isHome == true) {
+  
+  else if (isHome == true) {
     console.log("Calling home pagination");
     home_pagination();
-  } else {
-    console.log("Calling p");
+  } 
+  else {
     pagination();
   }
 }
@@ -117,10 +118,13 @@ function pagination() {
   }
 }
 function home_pagination() {
+  var temp_page_number = page_number%5;
   selected_products = products.slice(
-    page_number * page_size,
-    page_number * page_size + page_size
+    parseInt((temp_page_number * page_size)),
+    parseInt((temp_page_number * page_size + page_size))
   );
+  console.log("(page_number) * page_size    "+parseInt(temp_page_number) * page_size);
+  console.log("(page_number) * page_size + page_size    ",parseInt(temp_page_number) * page_size + page_size);
   if (page_number == 0) {
     document.getElementById("prev").style.backgroundColor = "transparent";
     document.getElementById("prev").style.zIndex = "-1";
@@ -207,8 +211,7 @@ function view_products() {
 }
 function view_homeproducts(set_of_45_products) {
   var skip = set_of_45_products * 45;
-  var limit = skip + 45;
-  page_number = 0;
+  var limit = 45;
   var http = new XMLHttpRequest();
   var url =
     "https://electronics-mart-api.herokuapp.com/view_45_products?skip=" +
@@ -218,8 +221,9 @@ function view_homeproducts(set_of_45_products) {
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
+      console.log(json);
       products = json.Products;
-      // products=main_produc.sort((a,b)=>0.5-Math.random());
+      products=products.sort((a,b)=>0.5-Math.random());
       total_products = json.Total_products;
       home_pagination();
       pagination_s();
@@ -287,12 +291,20 @@ function view_by_name() {
       main_products = json.AllProducts;
       products = main_products.sort((a, b) => 0.5 - Math.random());
       pagination();
+      document.getElementById("content").scrollIntoView();
     }
     if (http.readyState == 4 && http.status == 500) {
       Swal.fire({
         icon: "warning",
         title: "Oops...",
         text: "Oops Something went wrong...",
+      });
+    }
+    if (http.readyState == 4 && http.status == 404) {
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Oops, There's no Product with that name...",
       });
     }
   };
