@@ -49,15 +49,11 @@ var page_number = 0;
 page_size = 9;
 function next() {
   page_number += 1;
-  console.log("page_number   "+page_number);
   if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
-    console.log("Before");
-    view_homeproducts(page_number / 5);
-    console.log("after");
+    view_homeproducts(parseInt(page_number / 5));
   }
   
   else if (isHome == true) {
-    console.log("Calling home pagination");
     home_pagination();
   } 
   else {
@@ -66,9 +62,14 @@ function next() {
 }
 function prev() {
   page_number -= 1;
-  if (isHome == true) {
+  if (((page_number+1) * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
+    view_homeproducts(parseInt(page_number / 5));
+  }
+  
+  else if (isHome == true) {
     home_pagination();
-  } else {
+  } 
+  else {
     pagination();
   }
 }
@@ -123,8 +124,6 @@ function home_pagination() {
     parseInt((temp_page_number * page_size)),
     parseInt((temp_page_number * page_size + page_size))
   );
-  console.log("(page_number) * page_size    "+parseInt(temp_page_number) * page_size);
-  console.log("(page_number) * page_size + page_size    ",parseInt(temp_page_number) * page_size + page_size);
   if (page_number == 0) {
     document.getElementById("prev").style.backgroundColor = "transparent";
     document.getElementById("prev").style.zIndex = "-1";
@@ -221,7 +220,6 @@ function view_homeproducts(set_of_45_products) {
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
-      console.log(json);
       products = json.Products;
       products=products.sort((a,b)=>0.5-Math.random());
       total_products = json.Total_products;
