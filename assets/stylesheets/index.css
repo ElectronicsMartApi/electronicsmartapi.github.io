@@ -338,7 +338,7 @@ bar .col-2 span {
 /* Main Navigation */
 #navbar{
     background-color: var(--bg-color);
-    padding: 17px 0px;
+    padding: 10px 0px;
     position: sticky;
     top: 0px;
     z-index: 2;
