@@ -48,6 +48,7 @@ main_products = [];
 var page_number = 0;
 page_size = 9;
 function next() {
+  document.getElementById("content").scrollIntoView();
   page_number += 1;
   if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
     view_homeproducts(parseInt(page_number / 5));
@@ -61,6 +62,7 @@ function next() {
   }
 }
 function prev() {
+  document.getElementById("content").scrollIntoView();
   page_number -= 1;
   if (((page_number+1) * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
     view_homeproducts(parseInt(page_number / 5));
