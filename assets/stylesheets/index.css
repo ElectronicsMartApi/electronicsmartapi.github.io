@@ -1157,7 +1157,7 @@ bar .col-2 span {
 }
 @media (max-width:650px){
     #usefull .usefull{
-        margin: 0%2%;
+        margin: 0% 2%;
     }
 }
 @media (max-width:576px){
