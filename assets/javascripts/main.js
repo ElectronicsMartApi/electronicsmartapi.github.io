@@ -1,6 +1,7 @@
 var isNewArrival;
 var total_products;
 var isHome;
+var BASE_URL = "https://electronics-mart-api.herokuapp.com";
 function start() {
   n = localStorage.getItem("name");
   if (n != null) {
@@ -186,7 +187,7 @@ function view_products() {
   };
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url = "https://electronics-mart-api.herokuapp.com/view_by_categories";
+  var url = BASE_URL+"/view_by_categories";
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -215,7 +216,7 @@ function view_homeproducts(set_of_45_products) {
   var limit = 45;
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_45_products?skip=" +
+    BASE_URL+"/view_45_products?skip=" +
     skip +
     "&limit=" +
     limit;
@@ -252,7 +253,7 @@ function switch_categories(category) {
   page_number = 0;
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_by_category?category=" +
+    BASE_URL+"/view_by_category?category=" +
     category;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
@@ -284,7 +285,7 @@ function view_by_name() {
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_by_name_categories";
+    BASE_URL+"/view_by_name_categories";
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -357,7 +358,7 @@ function my_fav() {
     });
   } else {
     var http = new XMLHttpRequest();
-    var url = "https://electronics-mart-api.herokuapp.com/view_by_interest";
+    var url = BASE_URL+"/view_by_interest";
     http.onreadystatechange = function () {
       if (http.readyState == 4 && http.status == 200) {
         var json = JSON.parse(this.responseText);
@@ -388,7 +389,7 @@ function send_news() {
         email: email,
       };
       var data = JSON.stringify(obj);
-      var url = "https://electronics-mart-api.herokuapp.com/news_letter";
+      var url = BASE_URL+"/news_letter";
       http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
@@ -441,7 +442,7 @@ function get_by_rating(rating) {
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_by_categories?rating=" +
+    BASE_URL+"/view_by_categories?rating=" +
     rating;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
@@ -471,7 +472,7 @@ function get_by_price(gt, lt) {
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
   var url =
-    "https://electronics-mart-api.herokuapp.com/view_by_price_categories?gt=" +
+    BASE_URL+"/view_by_price_categories?gt=" +
     gt +
     "&lt=" +
     lt;
