@@ -1,3 +1,4 @@
+var cart;
 function view_my_cart(){
     var http = new XMLHttpRequest();
     var url = "https://electronics-mart-api.herokuapp.com/viewmycart";
